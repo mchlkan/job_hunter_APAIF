@@ -1,0 +1,19 @@
+searches:
+  - was: "Data Analyst"
+    wo: "Berlin"
+    umkreis: 30
+  - was: "Business Intelligence"
+    wo: "Berlin"
+    umkreis: 30
+  - was: "Werkstudent Data"
+    wo: "Berlin"
+    umkreis: 30
+
+fetch:
+  size: 100
+  veroeffentlichtseit: 7
+  pav: false
+  max_pages: 10
+  sleep_seconds: 0.5
+
+db_path: "data/jobs.db"
