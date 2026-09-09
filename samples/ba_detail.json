@@ -1,0 +1,41 @@
+{
+  "stellenangebotsart" : "ARBEIT",
+  "stellenangebotsTitel" : "Data-Analyst (m/w/d)",
+  "quereinstiegGeeignet" : true,
+  "stellenangebotsBeschreibung" : "**Ihr Profil:**\n\n- Mindestens B1 in Deutsch - weitere Sprachkenntnisse wie z.B Ukrainisch, Englisch oder Russisch von Vorteil; weitere Sprachen auch willkommen \n- Abgeschlossenes Studium, eine Ausbildung, Weiterbildung oder Umschulung im Bereich Dataanalyse oder vergleichbar mehrjährige relevante Berufserfahrung\n- Analytisches Denken, strukturierte Arbeitsweise und hohes Qualitätsbewusstsein\n\n**Ihre Aufgaben:** \n\n- Unterstützung bei datenbasierten Entscheidungen durch fundierte Analysen\n- Zusammenarbeit mit Fachabteilungen, Projektteams und ggf. externen Dienstleister\n- Sammeln, Aufbereiten und Bereinigen von Daten aus verschiedenen Quellen\n\n**Wir bieten:**\n\n- Angenehmes Arbeitsumfeld in einem motivierten Team\n- Eigenverantwortliches Arbeiten, mit Gestaltungsspielraum\n- Gründliche Einarbeitung in alle Aufgabenbereich",
+  "arbeitszeitSchichtNachtWochenende" : true,
+  "arbeitszeitTeilzeitAbend" : true,
+  "arbeitszeitTeilzeitNachmittag" : true,
+  "arbeitszeitTeilzeitVormittag" : true,
+  "arbeitszeitVollzeit" : true,
+  "eintrittszeitraum" : {
+    "von" : "2026-08-04"
+  },
+  "verguetungsangabe" : "KEINE_ANGABEN",
+  "vertragsdauer" : "KEINE_ANGABE",
+  "stellenlokationen" : [ {
+    "adresse" : {
+      "plz" : "10999",
+      "ort" : "Berlin",
+      "region" : "BERLIN",
+      "land" : "DEUTSCHLAND"
+    },
+    "breite" : 52.498687906,
+    "laenge" : 13.426543195
+  } ],
+  "homeofficemoeglich" : true,
+  "homeofficetyp" : "NACH_VEREINBARUNG",
+  "istPrivateArbeitsvermittlung" : true,
+  "veroeffentlichungszeitraum" : {
+    "von" : "2026-08-04"
+  },
+  "datumErsteVeroeffentlichung" : "2026-08-04",
+  "aenderungsdatum" : "2026-08-04T06:27:00.986",
+  "istBetreut" : false,
+  "hauptberuf" : "Data-Analyst/in",
+  "firma" : "Dipl.-Ing. Gennadi Rouditser D.I.R.A. Arbeitsvermittlung & Unternehmensberatung",
+  "arbeitgeberKundennummerHash" : "bT5JgyI-L-hKBXZLHFf4NxIgvxYlJ4rfgDRnFkzHeGg=",
+  "allianzpartnerUrl" : "http://www.arbeitsagentur.de",
+  "allianzpartnerName" : "arbeitsagentur.de",
+  "referenznummer" : "10001-1003485926-S"
+}

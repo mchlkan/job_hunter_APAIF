@@ -1,0 +1,1764 @@
+{
+  "ergebnisliste" : [ {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data-Analyst (m/w/d)",
+    "quereinstiegGeeignet" : true,
+    "arbeitszeitSchichtNachtWochenende" : true,
+    "arbeitszeitTeilzeitAbend" : true,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10999",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.498687906,
+      "laenge" : 13.426543195
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-04",
+    "aenderungsdatum" : "2026-08-04T06:27:00.986",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Dipl.-Ing. Gennadi Rouditser D.I.R.A. Arbeitsvermittlung & Unternehmensberatung",
+    "arbeitgeberKundennummerHash" : "bT5JgyI-L-hKBXZLHFf4NxIgvxYlJ4rfgDRnFkzHeGg=",
+    "referenznummer" : "10001-1003485926-S",
+    "entfernung" : 1,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data-Analyst (m/w/d)",
+    "quereinstiegGeeignet" : true,
+    "arbeitszeitSchichtNachtWochenende" : true,
+    "arbeitszeitTeilzeitAbend" : true,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "12099",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.460851145,
+      "laenge" : 13.402635074
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-04",
+    "aenderungsdatum" : "2026-08-04T06:28:05.945",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Dipl.-Ing. Gennadi Rouditser D.I.R.A. Arbeitsvermittlung & Unternehmensberatung",
+    "arbeitgeberKundennummerHash" : "bT5JgyI-L-hKBXZLHFf4NxIgvxYlJ4rfgDRnFkzHeGg=",
+    "referenznummer" : "10001-1003485928-S",
+    "entfernung" : 6,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data-Analyst (m/w/d)",
+    "quereinstiegGeeignet" : true,
+    "arbeitszeitSchichtNachtWochenende" : true,
+    "arbeitszeitTeilzeitAbend" : true,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10719",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.498636061,
+      "laenge" : 13.326649512
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-04"
+    },
+    "datumErsteVeroeffentlichung" : "2026-05-21",
+    "aenderungsdatum" : "2026-08-04T06:26:16.109",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Dipl.-Ing. Gennadi Rouditser D.I.R.A. Arbeitsvermittlung & Unternehmensberatung",
+    "arbeitgeberKundennummerHash" : "bT5JgyI-L-hKBXZLHFf4NxIgvxYlJ4rfgDRnFkzHeGg=",
+    "referenznummer" : "10001-1003112359-S",
+    "entfernung" : 7,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Analyst:in Fundraising (m/w/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-19"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10179",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5132279,
+      "laenge" : 13.4157237
+    } ],
+    "homeofficemoeglich" : false,
+    "chiffrenummer" : "2759784",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-19"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-19",
+    "aenderungsdatum" : "2026-08-19T17:23:06.380",
+    "externeURL" : "https://www.jobexport.de/job/5225722.html?exp=81&cid=eb6be00f-8622-4033-a4f1-0bb6ead40322",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Albert Schweitzer Stiftung für unsere Mitwelt",
+    "referenznummer" : "13635-eb6be00f_JB5225722-S",
+    "entfernung" : 1,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Analyst*in (w/m/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : false,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "13355",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5412913,
+      "laenge" : 13.3900167
+    } ],
+    "homeofficemoeglich" : false,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-25",
+    "aenderungsdatum" : "2026-08-25T11:23:58.059",
+    "externeURL" : "https://www.jobware.de/job/063836154?jw_chl_seg=ARBEITSAGENTUR",
+    "hauptberuf" : "Data Scientist",
+    "firma" : "Deutsche Welle",
+    "referenznummer" : "12908-063836154-S",
+    "entfernung" : 4,
+    "alleBerufe" : [ "Data Scientist" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "HR Data Analyst (m/w/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-26"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10115",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5319761,
+      "laenge" : 13.3867379
+    } ],
+    "homeofficemoeglich" : false,
+    "chiffrenummer" : "2745699",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-26"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-26",
+    "aenderungsdatum" : "2026-08-26T14:12:47.919",
+    "externeURL" : "https://www.jobexport.de/job/5230782.html?exp=81&cid=25dbba8f-856a-4c1b-a0dc-e9b9a7ef22af",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Tierarzt Plus GmbH",
+    "referenznummer" : "13635-25dbba8f_JB5230782-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Analyst (m/w/d) Data Analytics",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : false,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-03"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10178",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5210906,
+      "laenge" : 13.4099785
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "chiffrenummer" : "309005",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-03"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-03",
+    "aenderungsdatum" : "2026-09-03T07:23:42.019",
+    "externeURL" : "https://www.get-in-it.de/jobsuche/p309005?utm_source=arbeitsagentur&utm_medium=organic&utm_campaign=launch-basic",
+    "hauptberuf" : "Business-Analyst/in",
+    "firma" : "Syncwork",
+    "referenznummer" : "13644-309005-S",
+    "entfernung" : 2,
+    "alleBerufe" : [ "Business-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Senior Data Analyst (Kineto) (m/f/d)",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-28"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Cuvrystraße",
+        "hausnummer" : "53",
+        "plz" : "10997",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.499898,
+      "laenge" : 13.4472735
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-07-07"
+    },
+    "datumErsteVeroeffentlichung" : "2026-07-07",
+    "aenderungsdatum" : "2026-08-28T14:47:54.083",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "JetBrains GmbH",
+    "arbeitgeberKundennummerHash" : "WBy2dq1793NfyIndKqUbywqejG4d7VZeQPXXQqqRZiU=",
+    "referenznummer" : "10001-1003347720-S",
+    "entfernung" : 2,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Business Data Analyst (f/m/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-07-01"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10553",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5281495,
+      "laenge" : 13.3234467
+    } ],
+    "homeofficemoeglich" : false,
+    "chiffrenummer" : "297436",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-06-23"
+    },
+    "datumErsteVeroeffentlichung" : "2026-06-22",
+    "aenderungsdatum" : "2026-06-23T09:55:58.203",
+    "hauptberuf" : "Data Scientist",
+    "firma" : "Siemens Energy Global GmbH & Co. KG",
+    "arbeitgeberKundennummerHash" : "HmhVIE5IrRBnk8cbtySzmaFEZpUH0t-x_DBDeMHrPi8=",
+    "referenznummer" : "15170-466014228-S",
+    "entfernung" : 7,
+    "alleBerufe" : [ "Data Scientist" ]
+  }, {
+    "stellenangebotsart" : "SELBSTAENDIGKEIT",
+    "stellenangebotsTitel" : "Big Data Analyst",
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-28"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Frankfurter Allee",
+        "hausnummer" : "73",
+        "plz" : "10247",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.51442479700006,
+      "laenge" : 13.46545199500008
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-08"
+    },
+    "datumErsteVeroeffentlichung" : "2025-02-11",
+    "aenderungsdatum" : "2026-09-08T12:15:08.057",
+    "hauptberuf" : "Informatiker/in",
+    "alternativBeruf1" : "Wirtschaftsinformatiker/in (Fachschule)/Bachelor Professional in Wirtschaft",
+    "alternativBeruf2" : "Mathematiker/in",
+    "firma" : "alfatraining Bildungszentrum GmbH",
+    "arbeitgeberKundennummerHash" : "B1uI-VVbWW1P5U3F8Dc8FWLNlcfpehFSi__pNJ8EbIo=",
+    "referenznummer" : "10000-1188869613-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Informatiker/in", "Wirtschaftsinformatiker/in (Fachschule)/Bachelor Professional in Wirtschaft", "Mathematiker/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Analyst | Mitarbeiter *in Datenmanagement",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-20"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Siemensdamm",
+        "hausnummer" : "50",
+        "plz" : "13629",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.535529000001,
+      "laenge" : 13.2745185
+    } ],
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-20"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-20",
+    "aenderungsdatum" : "2026-08-20T09:36:54.869",
+    "hauptberuf" : "Data-Warehouse-Analyst/in",
+    "firma" : "Johannesstift Diakonie gAG",
+    "arbeitgeberKundennummerHash" : "OGfsz_hOo9w_1VYgkuuZKRNIndhGmPH01YIueZvil3c=",
+    "referenznummer" : "18196-JDS_006944-S",
+    "entfernung" : 11,
+    "alleBerufe" : [ "Data-Warehouse-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Scientist & Data Analyst (f/m/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-07-01"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10553",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5281495,
+      "laenge" : 13.3234467
+    } ],
+    "homeofficemoeglich" : false,
+    "chiffrenummer" : "293695",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-05-07"
+    },
+    "datumErsteVeroeffentlichung" : "2026-05-06",
+    "aenderungsdatum" : "2026-05-20T11:21:43.445",
+    "hauptberuf" : "Data Scientist",
+    "firma" : "Siemens Energy Global GmbH & Co. KG",
+    "arbeitgeberKundennummerHash" : "HmhVIE5IrRBnk8cbtySzmaFEZpUH0t-x_DBDeMHrPi8=",
+    "referenznummer" : "15170-458395528-S",
+    "entfernung" : 7,
+    "alleBerufe" : [ "Data Scientist" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Analyst (JetBrains AI) (m/f/d)",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-28"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Cuvrystraße",
+        "hausnummer" : "53",
+        "plz" : "10997",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.499898,
+      "laenge" : 13.4472735
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-07-16"
+    },
+    "datumErsteVeroeffentlichung" : "2026-07-07",
+    "aenderungsdatum" : "2026-08-28T14:35:25.119",
+    "hauptberuf" : "Datenbankadministrator/in",
+    "firma" : "JetBrains GmbH",
+    "arbeitgeberKundennummerHash" : "WBy2dq1793NfyIndKqUbywqejG4d7VZeQPXXQqqRZiU=",
+    "referenznummer" : "10001-1003340735-S",
+    "entfernung" : 2,
+    "alleBerufe" : [ "Datenbankadministrator/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Principal Product Analyst (all genders)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Valeska-Gert-Straße 5",
+        "plz" : "10243",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.506468,
+      "laenge" : 13.441248
+    } ],
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-25",
+    "aenderungsdatum" : "2026-08-25T07:27:28.089",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Zalando SE",
+    "arbeitgeberKundennummerHash" : "6j1LD7GT5Ptmu4Kjh_aAXrzBy8l2iE9iGSfd_WjRWHc=",
+    "referenznummer" : "18251-32202-S",
+    "entfernung" : 1,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Tech Analyst - Broker Signup Flows",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-06-24"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10117",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.517272163,
+      "laenge" : 13.388290438
+    } ],
+    "chiffrenummer" : "21360",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-06-24"
+    },
+    "datumErsteVeroeffentlichung" : "2026-03-26",
+    "aenderungsdatum" : "2026-06-23T11:21:39.840",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "DKB Service GmbH",
+    "arbeitgeberKundennummerHash" : "rpxrBdNQ2YNoS-BhPRyZZZ-wKT1vwK4gYXew0FsyK9M=",
+    "referenznummer" : "14412-44060691-325-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "SELBSTAENDIGKEIT",
+    "stellenangebotsTitel" : "Big Data Analytics",
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-28"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Frankfurter Allee",
+        "hausnummer" : "73",
+        "plz" : "10247",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.51442479700006,
+      "laenge" : 13.46545199500008
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-08"
+    },
+    "datumErsteVeroeffentlichung" : "2025-02-11",
+    "aenderungsdatum" : "2026-09-08T12:05:09.308",
+    "hauptberuf" : "Data-Analyst/in",
+    "alternativBeruf1" : "Data Scientist",
+    "alternativBeruf2" : "Data Engineer",
+    "firma" : "alfatraining Bildungszentrum GmbH",
+    "arbeitgeberKundennummerHash" : "B1uI-VVbWW1P5U3F8Dc8FWLNlcfpehFSi__pNJ8EbIo=",
+    "referenznummer" : "10000-1183192054-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Data-Analyst/in", "Data Scientist", "Data Engineer" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Senior Data Engineer (gn)",
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "EUREF-Campus",
+        "hausnummer" : "6 - 9",
+        "plz" : "10829",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.482429,
+      "laenge" : 13.3572375
+    } ],
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-25",
+    "aenderungsdatum" : "2026-08-25T16:44:19.918",
+    "hauptberuf" : "Data Engineer",
+    "alternativBeruf1" : "Data Scientist",
+    "alternativBeruf2" : "Data-Analyst/in",
+    "firma" : "enersis Europe GmbH",
+    "arbeitgeberKundennummerHash" : "m_rdgvhLhPq2SzxZLYsl5eVSdgjm1qG0Mk19rIRbQw8=",
+    "referenznummer" : "10001-1003598452-S",
+    "entfernung" : 6,
+    "alleBerufe" : [ "Data-Analyst/in", "Data Scientist", "Data Engineer" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Marketing Business Intelligence Analyst (all gender)",
+    "quereinstiegGeeignet" : false,
+    "weitereBerufe" : [ "Senior Marketing Data Analyst", "Marketing Business Intelligence Analyst" ],
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-04"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Prinzenstr.",
+        "hausnummer" : "89",
+        "plz" : "10969",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.502166,
+      "laenge" : 13.4092125
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-04"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-04",
+    "aenderungsdatum" : "2026-09-04T10:30:40.610",
+    "hauptberuf" : "Marketingfachkraft/-assistent/in",
+    "alternativBeruf1" : "Business-Analyst/in",
+    "firma" : "HelloFresh SE",
+    "arbeitgeberKundennummerHash" : "aEchPcxFTIQv7tgqnncEV2Vy49mOm4igJJZN0g00otY=",
+    "referenznummer" : "10000-1207674529-S",
+    "entfernung" : 1,
+    "alleBerufe" : [ "Senior Marketing Data Analyst", "Business-Analyst/in", "Marketingfachkraft/-assistent/in", "Marketing Business Intelligence Analyst" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Datenanalyst:in Bedarfsplanung",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-10"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "14057",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5067846,
+      "laenge" : 13.2887193
+    } ],
+    "homeofficemoeglich" : false,
+    "chiffrenummer" : "34582163",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-03"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-03",
+    "aenderungsdatum" : "2026-09-09T07:09:41.008",
+    "externeURL" : "https://www.persy.jobs/persy/l/job-jhjz0-b",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Kassenärztliche Vereinigung Berlin",
+    "referenznummer" : "12288-4929332034-S",
+    "entfernung" : 9,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Datenanalyst (m/w/d) Werkslogistik ",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-02"
+    },
+    "verguetungsangabe" : "JAHRESGEHALT",
+    "artDerVerguetung" : "GEHALTSSPANNE",
+    "gehaltsspanneVon" : 55.0,
+    "gehaltsspanneBis" : 65000.0,
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "15537",
+        "ort" : "Erkner",
+        "region" : "BRANDENBURG",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.412147746,
+      "laenge" : 13.75395522
+    } ],
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-02"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-02",
+    "aenderungsdatum" : "2026-09-02T10:02:03.902",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Vilo-Personal GmbH Leipziger P",
+    "arbeitgeberKundennummerHash" : "9dDVdRBjaSd0TptOnrY7PRLXyM8bfbY_xLkwb7PD9cM=",
+    "referenznummer" : "14888-MAY8V4YDDN8A5ZMX-S",
+    "entfernung" : 25,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Sachbearbeitung (m/w/d) Datenmanagement - E 12 TV-L",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "13627",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5395904,
+      "laenge" : 13.2972774
+    } ],
+    "homeofficemoeglich" : false,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-25",
+    "aenderungsdatum" : "2026-08-25T19:10:04.670",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Berliner Feuerwehr PolBln Dir ZS Pers B 55",
+    "arbeitgeberKundennummerHash" : "JkB1RDeQ7eFalduvswAQhynLBiTLbx6sAcHPQA2pJhg=",
+    "referenznummer" : "14795-68704_122883-S",
+    "entfernung" : 9,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "PRAKTIKUM_TRAINEE",
+    "stellenangebotsTitel" : "Werkstudent SEO & AI Search Visibility (m/w/d)",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : false,
+    "eintrittszeitraum" : {
+      "von" : "2026-07-30"
+    },
+    "verguetungsangabe" : "STUNDENLOHN",
+    "artDerVerguetung" : "FESTGEHALT",
+    "festgehalt" : 16.0,
+    "vertragsdauer" : "BEFRISTET",
+    "befristungInMonaten" : 12,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Rheinstr.",
+        "hausnummer" : "7a",
+        "plz" : "14513",
+        "ort" : "Teltow",
+        "region" : "BRANDENBURG",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.399899,
+      "laenge" : 13.246344
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-07-30"
+    },
+    "datumErsteVeroeffentlichung" : "2026-07-30",
+    "aenderungsdatum" : "2026-07-30T11:25:30.958",
+    "hauptberuf" : "Data-Analyst/in",
+    "firma" : "Verti Versicherung AG",
+    "arbeitgeberKundennummerHash" : "9yAkWAfk9sQwg5Tm1cr0eMByki6xRi8WhxaeSdBBWrw=",
+    "referenznummer" : "10001-1003467890-S",
+    "entfernung" : 17,
+    "alleBerufe" : [ "Data-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Referent*in (w/m/d) für Monitoring, Evaluierung und Wirkungsanalyse",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-04"
+    },
+    "verguetungsangabe" : "JAHRESGEHALT",
+    "artDerVerguetung" : "GEHALTSSPANNE",
+    "gehaltsspanneVon" : 62489.0,
+    "gehaltsspanneBis" : 72800.0,
+    "vertragsdauer" : "BEFRISTET",
+    "befristungInMonaten" : 24,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Stresemannstraße",
+        "hausnummer" : "69-71",
+        "plz" : "10963",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.502895,
+      "laenge" : 13.3840395
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "ANGABE_IN_PROZENT",
+    "homeofficeprozent" : 60,
+    "chiffrenummer" : "2685",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-04"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-04",
+    "aenderungsdatum" : "2026-09-04T09:54:18.070",
+    "hauptberuf" : "Business-Analyst/in",
+    "alternativBeruf1" : "Data-Analyst/in",
+    "alternativBeruf2" : "Digital-Analyst/in",
+    "firma" : "Zukunft-Umwelt-Gesellschaft ZUG gGmbH",
+    "arbeitgeberKundennummerHash" : "QuoX_1Q1_h0BvHxPC1g48ctEoRd6M7n0_jmnKrhbuXc=",
+    "referenznummer" : "10001-1003653492-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Data-Analyst/in", "Digital-Analyst/in", "Business-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Senior GRC Analyst (m,f,x)",
+    "quereinstiegGeeignet" : false,
+    "weitereBerufe" : [ "GRC Analyst", "Cybersecurity", "Governance, Risk & Compliance" ],
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-06-29"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "BEFRISTET",
+    "befristungInMonaten" : 24,
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Prinzenstr.",
+        "hausnummer" : "89",
+        "plz" : "10969",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.502166,
+      "laenge" : 13.4092125
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-06-19"
+    },
+    "datumErsteVeroeffentlichung" : "2026-06-19",
+    "aenderungsdatum" : "2026-06-29T15:09:11.060",
+    "hauptberuf" : "Softwareentwickler/in",
+    "alternativBeruf1" : "Bachelor Professional - IT (Informationssicherheit)",
+    "firma" : "HelloFresh SE",
+    "arbeitgeberKundennummerHash" : "aEchPcxFTIQv7tgqnncEV2Vy49mOm4igJJZN0g00otY=",
+    "referenznummer" : "10000-1206903189-S",
+    "entfernung" : 1,
+    "alleBerufe" : [ "GRC Analyst", "Softwareentwickler/in", "Bachelor Professional - IT (Informationssicherheit)", "Cybersecurity", "Governance, Risk & Compliance" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "(Senior) Finance BI Analyst (all genders)",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-31"
+    },
+    "verguetungsangabe" : "JAHRESGEHALT",
+    "artDerVerguetung" : "GEHALTSSPANNE",
+    "gehaltsspanneVon" : 80000.0,
+    "gehaltsspanneBis" : 85000.0,
+    "vertragsdauer" : "UNBEFRISTET",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.4926833,
+      "laenge" : 13.4025753
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-25"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-25",
+    "aenderungsdatum" : "2026-08-31T11:35:34.720",
+    "hauptberuf" : "Business-Analyst/in",
+    "firma" : "Tele Columbus Netz GmbH -(Leipzig)",
+    "arbeitgeberKundennummerHash" : "eRJhoUPMsqaXzAaeqPO2GO2Dgi50jTlzGCDpWE1UUi8=",
+    "referenznummer" : "10001-1003597801-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Business-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Objektleiter (m/w/d)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-15"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Vulkanstr. 13",
+        "plz" : "10367",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.531371,
+      "laenge" : 13.4857305
+    } ],
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-14"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-14",
+    "aenderungsdatum" : "2026-09-03T17:34:03.393",
+    "hauptberuf" : "Koch/Köchin",
+    "alternativBeruf1" : "Betriebswirt/in (Hochschule) - Touristik",
+    "alternativBeruf2" : "Data-Analyst/in",
+    "firma" : "Vermaat Deutschland Services GmbH",
+    "arbeitgeberKundennummerHash" : "k01_Q2wMeNlYjcLP3HYBM5UjpaD_b1Lb9nV2s8cLcVQ=",
+    "referenznummer" : "15527-k50296.2601-S",
+    "entfernung" : 5,
+    "alleBerufe" : [ "Data-Analyst/in", "Koch/Köchin", "Betriebswirt/in (Hochschule) - Touristik" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Referent:in Strategisches Medizincontrolling (DRG Analyst) (m/w/d)",
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-04-15"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Schwanebecker Chaussee",
+        "hausnummer" : "50",
+        "plz" : "13125",
+        "ort" : "Berlin",
+        "ortsteil" : "Buch",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.6314084,
+      "laenge" : 13.5112351
+    } ],
+    "chiffrenummer" : "0368_000102",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2025-11-06"
+    },
+    "datumErsteVeroeffentlichung" : "2025-09-15",
+    "aenderungsdatum" : "2026-04-15T09:46:38.692",
+    "hauptberuf" : "Controller/in",
+    "firma" : "Helios Verwaltung Ost GmbH",
+    "arbeitgeberKundennummerHash" : "0YsJT_kBRCfc4kHMUjLcAQLI1B10S11nYp2xHnS6SxY=",
+    "referenznummer" : "10001-1001840207-S",
+    "entfernung" : 15,
+    "alleBerufe" : [ "Controller/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Product Analytics Manager (w/m/d)",
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-07-02"
+    },
+    "verguetungsangabe" : "JAHRESGEHALT",
+    "artDerVerguetung" : "GEHALTSSPANNE",
+    "gehaltsspanneVon" : 65000,
+    "gehaltsspanneBis" : 74000,
+    "vertragsdauer" : "UNBEFRISTET",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Anton-Wilhelm-Amo-Str.",
+        "hausnummer" : "34",
+        "plz" : "10117",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.517272163,
+      "laenge" : 13.388290438
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-07-02"
+    },
+    "datumErsteVeroeffentlichung" : "2026-04-02",
+    "aenderungsdatum" : "2026-07-02T14:55:34.207",
+    "hauptberuf" : "Data-Analyst/in",
+    "alternativBeruf1" : "Business-Analyst/in",
+    "alternativBeruf2" : "Betriebswirt/in - allgemeine Betriebswirtschaft",
+    "firma" : "Bundesnotarkammer",
+    "arbeitgeberKundennummerHash" : "mYBFPNjjSBktGSbTW1bsihPeEayCMBNe44iTizZQ-Jw=",
+    "referenznummer" : "10001-1002867549-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Data-Analyst/in", "Business-Analyst/in", "Betriebswirt/in - allgemeine Betriebswirtschaft" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Subject Matter Expert SME Analyst (f/m/d) - Procurement",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-05-01"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "13629",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5445652,
+      "laenge" : 13.2673908
+    } ],
+    "chiffrenummer" : "290240",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-03-02"
+    },
+    "datumErsteVeroeffentlichung" : "2026-03-02",
+    "aenderungsdatum" : "2026-04-08T15:26:15.914",
+    "hauptberuf" : "Informatiker/in",
+    "alternativBeruf1" : "Informationsmanager/in",
+    "firma" : "Siemens Energy Global GmbH & Co. KG",
+    "arbeitgeberKundennummerHash" : "HmhVIE5IrRBnk8cbtySzmaFEZpUH0t-x_DBDeMHrPi8=",
+    "referenznummer" : "15170-446189026-S",
+    "entfernung" : 11,
+    "alleBerufe" : [ "Informatiker/in", "Informationsmanager/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Performance Marketing Manager*in (Schwerpunkt Google Ads & Lead-Generierung)",
+    "weitereBerufe" : [ "PPC Manager/in", "Digital Campaign Manager/in", "Marketing Data Analyst/in", "Online Marketing Manager/in" ],
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-09"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Zimmerstr.",
+        "hausnummer" : "26/27",
+        "plz" : "10969",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.507719,
+      "laenge" : 13.3931475
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-01"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-01",
+    "aenderungsdatum" : "2026-09-09T09:36:15.842",
+    "hauptberuf" : "Performance-Marketing-Manager/in",
+    "alternativBeruf1" : "SEA-Manager/in",
+    "alternativBeruf2" : "Marketingfachkraft/-assistent/in",
+    "firma" : "DUT Wirtschaftsfachschule GmbH & Co. Berliner Ausbildungs- und Beratungs-KG",
+    "arbeitgeberKundennummerHash" : "0eCFRVoB8I4ZP42csUOfFdq5X1M4Zt87tFAxz0VWfjM=",
+    "referenznummer" : "10001-1003637207-S",
+    "entfernung" : 2,
+    "alleBerufe" : [ "Marketing Data Analyst/in", "Performance-Marketing-Manager/in", "SEA-Manager/in", "Marketingfachkraft/-assistent/in", "PPC Manager/in", "Digital Campaign Manager/in", "Online Marketing Manager/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "NTT DATA Deutschland SE: Deal Maker (w/m/x)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10117",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5172722,
+      "laenge" : 13.3882904
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "ANGABE_IN_PROZENT",
+    "homeofficeprozent" : 100,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-07",
+    "aenderungsdatum" : "2026-09-07T16:00:20.161",
+    "hauptberuf" : "Beteiligungsmanager/in",
+    "alternativBeruf1" : "Vertriebs-Geschäftsführer/in",
+    "alternativBeruf2" : "Unternehmensberater/in",
+    "firma" : "NTT DATA Deutschland SE",
+    "arbeitgeberKundennummerHash" : "Fmzbu287DGPag4m7l5qpUPWlreoCn-TaOg46UzV7K8g=",
+    "referenznummer" : "19913-2843891788732001-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Beteiligungsmanager/in", "Vertriebs-Geschäftsführer/in", "Unternehmensberater/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Junior AI Integration Engineer - Berufseinsteiger KI   (m/w/d) 26012-ICNB01",
+    "quereinstiegGeeignet" : true,
+    "weitereBerufe" : [ "IT-Assistent", "Elektroniker", "Kaufmann für IT-System-Management" ],
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.492683263,
+      "laenge" : 13.402575309
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "datumErsteVeroeffentlichung" : "2026-05-27",
+    "aenderungsdatum" : "2026-09-07T13:20:41.600",
+    "hauptberuf" : "Fachinformatiker/in - Anwendungsentwicklung",
+    "alternativBeruf1" : "Fachinformatiker/in - Daten- und Prozessanalyse",
+    "alternativBeruf2" : "Fachinformatiker/in - Systemintegration",
+    "firma" : "NG Engineering Consulting GmbH",
+    "arbeitgeberKundennummerHash" : "yYnmzqgtjH_iZcalxe0SocJgmPHdYpj1AUbgmb6f04A=",
+    "referenznummer" : "10001-1003132592-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "Fachinformatiker/in - Anwendungsentwicklung", "Fachinformatiker/in - Daten- und Prozessanalyse", "Fachinformatiker/in - Systemintegration", "IT-Assistent", "Elektroniker", "Kaufmann für IT-System-Management" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Team Lead Trade Analytics & Market Intelligence (f/m/d)",
+    "quereinstiegGeeignet" : true,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-24"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Schönhauser Allee",
+        "hausnummer" : "9",
+        "plz" : "10119",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.530075,
+      "laenge" : 13.4108775
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "NACH_VEREINBARUNG",
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-24"
+    },
+    "datumErsteVeroeffentlichung" : "2026-06-19",
+    "aenderungsdatum" : "2026-08-24T11:09:00.847",
+    "hauptberuf" : "Digital-Analyst/in",
+    "alternativBeruf1" : "Business-Analyst/in",
+    "alternativBeruf2" : "Leiter/in - Supply-Chain-Management",
+    "firma" : "Forto Logistics SE & Co. KG",
+    "arbeitgeberKundennummerHash" : "NqX-X-znFZc29vuGDx4ILEfIA_rKooiO0S-BbFfAYro=",
+    "referenznummer" : "10001-1003259430-S",
+    "entfernung" : 2,
+    "alleBerufe" : [ "Digital-Analyst/in", "Business-Analyst/in", "Leiter/in - Supply-Chain-Management" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Engineer (d/m/w), Zi (Berlin)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : true,
+    "arbeitszeitTeilzeitVormittag" : true,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-18"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Salzufer 8",
+        "plz" : "10587",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.516953,
+      "laenge" : 13.3284285
+    } ],
+    "homeofficemoeglich" : false,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-18"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-18",
+    "aenderungsdatum" : "2026-08-18T17:41:15.188",
+    "externeURL" : "https://www.finest-jobs.com/stellenanzeige/Data-Engineer-D--1302785?cp=BA",
+    "hauptberuf" : "Data-Warehouse-Analyst/in",
+    "firma" : "Zentralinstitut kassenärztliche Versorgung",
+    "referenznummer" : "12811-2316459-S",
+    "entfernung" : 7,
+    "alleBerufe" : [ "Data-Warehouse-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "NTT DATA Deutschland SE: Senior Business Analyst - Core Insurance (m/w/x) Guidewire & Business Proce",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10117",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5172722,
+      "laenge" : 13.3882904
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "ANGABE_IN_PROZENT",
+    "homeofficeprozent" : 100,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-09-07"
+    },
+    "datumErsteVeroeffentlichung" : "2026-09-07",
+    "aenderungsdatum" : "2026-09-07T15:06:53.199",
+    "hauptberuf" : "IT-Lösungsentwickler/in",
+    "alternativBeruf1" : "IT-Berater/in",
+    "alternativBeruf2" : "ERP-Berater/in - ERP-Consultant",
+    "firma" : "NTT DATA Deutschland SE",
+    "arbeitgeberKundennummerHash" : "Fmzbu287DGPag4m7l5qpUPWlreoCn-TaOg46UzV7K8g=",
+    "referenznummer" : "19913-2957111788732001-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "IT-Lösungsentwickler/in", "IT-Berater/in", "ERP-Berater/in - ERP-Consultant" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "Data Protection Consultant (w/m/d),Bielefeld,Berlin",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : false,
+    "eintrittszeitraum" : {
+      "von" : "2026-08-21"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "UNBEFRISTET",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "strasse" : "Geneststr. 5-8",
+        "plz" : "10829",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.471638,
+      "laenge" : 13.365954
+    } ],
+    "homeofficemoeglich" : false,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-07-24"
+    },
+    "datumErsteVeroeffentlichung" : "2026-07-24",
+    "aenderungsdatum" : "2026-08-21T07:01:11.766",
+    "externeURL" : "https://www.finest-jobs.com/stellenanzeige/Data-Protection-Consultant-D-1292942?cp=BA",
+    "hauptberuf" : "Data-Warehouse-Analyst/in",
+    "firma" : "OEDIV",
+    "referenznummer" : "12811-2301638-S",
+    "entfernung" : 6,
+    "alleBerufe" : [ "Data-Warehouse-Analyst/in" ]
+  }, {
+    "stellenangebotsart" : "ARBEIT",
+    "stellenangebotsTitel" : "NTT DATA Deutschland SE: AI Go-to-Market Insurance DACH Lead/Managing Consultant (w/m/x)",
+    "quereinstiegGeeignet" : false,
+    "arbeitszeitSchichtNachtWochenende" : false,
+    "arbeitszeitTeilzeitAbend" : false,
+    "arbeitszeitTeilzeitNachmittag" : false,
+    "arbeitszeitTeilzeitVormittag" : false,
+    "arbeitszeitTeilzeitFlexibel" : false,
+    "arbeitszeitVollzeit" : true,
+    "eintrittszeitraum" : {
+      "von" : "2026-09-06"
+    },
+    "verguetungsangabe" : "KEINE_ANGABEN",
+    "vertragsdauer" : "KEINE_ANGABE",
+    "istGeringfuegigeBeschaeftigung" : false,
+    "stellenlokationen" : [ {
+      "adresse" : {
+        "plz" : "10117",
+        "ort" : "Berlin",
+        "region" : "BERLIN",
+        "land" : "DEUTSCHLAND"
+      },
+      "breite" : 52.5172722,
+      "laenge" : 13.3882904
+    } ],
+    "homeofficemoeglich" : true,
+    "homeofficetyp" : "ANGABE_IN_PROZENT",
+    "homeofficeprozent" : 100,
+    "veroeffentlichungszeitraum" : {
+      "von" : "2026-08-27"
+    },
+    "datumErsteVeroeffentlichung" : "2026-08-27",
+    "aenderungsdatum" : "2026-09-06T07:33:28.478",
+    "hauptberuf" : "KI-Manager/in",
+    "alternativBeruf1" : "Beteiligungsmanager/in",
+    "alternativBeruf2" : "Business-Unit Leiter/in",
+    "firma" : "NTT DATA Deutschland SE",
+    "arbeitgeberKundennummerHash" : "Fmzbu287DGPag4m7l5qpUPWlreoCn-TaOg46UzV7K8g=",
+    "referenznummer" : "19913-3045601787781601-S",
+    "entfernung" : 3,
+    "alleBerufe" : [ "KI-Manager/in", "Beteiligungsmanager/in", "Business-Unit Leiter/in" ]
+  } ],
+  "maxErgebnisse" : 37,
+  "page" : 1,
+  "size" : 100,
+  "woOutput" : {
+    "bereinigterOrt" : "Berlin",
+    "suchmodus" : "UMKREISSUCHE",
+    "koordinaten" : [ {
+      "lat" : 52.5112613,
+      "lon" : 13.4255145
+    } ]
+  },
+  "facetten" : {
+    "verguetung" : {
+      "counts" : {
+        "jahr" : 4,
+        "stunde" : 1
+      },
+      "maxCount" : 37
+    },
+    "befristung" : {
+      "counts" : {
+        "1" : 3,
+        "2" : 17,
+        "3" : 17
+      },
+      "maxCount" : 37
+    },
+    "externestellenboersen" : {
+      "counts" : {
+        "false" : 30,
+        "true" : 7
+      },
+      "maxCount" : 37
+    },
+    "behinderung" : {
+      "counts" : {
+        "false" : 19,
+        "true" : 6
+      },
+      "maxCount" : 37
+    },
+    "berufsfeld" : {
+      "counts" : {
+        "IT-Netzwerktechnik, -Administration, -Organisation" : 18,
+        "Informatik" : 7,
+        "Rechnungswesen, Controlling und Revision" : 1,
+        "Softwareentwicklung und Programmierung" : 3,
+        "Speisenzubereitung" : 1,
+        "Unternehmensorganisation und -strategie" : 4,
+        "Versicherungs- und Finanzdienstleistungen" : 1,
+        "Werbung und Marketing" : 2
+      },
+      "maxCount" : 37
+    },
+    "pav" : {
+      "counts" : {
+        "false" : 31,
+        "true" : 6
+      },
+      "maxCount" : 37
+    },
+    "topberuf" : {
+      "counts" : {
+        "Data-Analyst/in" : 17,
+        "Data-Warehouse-Analyst/in" : 3,
+        "Business-Analyst/in" : 6,
+        "Data Scientist" : 5
+      },
+      "scores" : {
+        "Data-Analyst/in" : 12521941,
+        "Data-Warehouse-Analyst/in" : 878089,
+        "Business-Analyst/in" : 726046,
+        "Data Scientist" : 683227
+      },
+      "maxCount" : 37
+    },
+    "arbeitsort" : {
+      "counts" : {
+        "Berlin" : 35,
+        "Teltow" : 1,
+        "Erkner" : 1
+      },
+      "maxCount" : 37
+    },
+    "veroeffentlichtseit" : {
+      "counts" : {
+        "14" : 10,
+        "28" : 19,
+        "7" : 7,
+        "alle" : 37
+      },
+      "maxCount" : 37
+    },
+    "weitereberufe" : {
+      "counts" : {
+        "Cybersecurity" : 1,
+        "Digital Campaign Manager/in" : 1,
+        "Elektroniker" : 1,
+        "GRC Analyst" : 1,
+        "Governance, Risk & Compliance" : 1,
+        "IT-Assistent" : 1,
+        "Kaufmann für IT-System-Management" : 1,
+        "Marketing Business Intelligence Analyst" : 1,
+        "Marketing Data Analyst/in" : 1,
+        "Online Marketing Manager/in" : 1,
+        "PPC Manager/in" : 1,
+        "Senior Marketing Data Analyst" : 1
+      },
+      "maxCount" : 37
+    },
+    "schulbildung" : {
+      "counts" : {
+        "6" : 1
+      },
+      "maxCount" : 37
+    },
+    "arbeitsort_plz" : {
+      "counts" : {
+        "01069" : 1,
+        "04356" : 1,
+        "10115" : 1,
+        "10117" : 5,
+        "10119" : 1,
+        "10178" : 1,
+        "10179" : 1,
+        "10243" : 1,
+        "10247" : 2,
+        "10367" : 1,
+        "10553" : 2,
+        "10587" : 1,
+        "10719" : 1,
+        "10829" : 2,
+        "10963" : 1,
+        "10969" : 3,
+        "10997" : 2,
+        "10999" : 1,
+        "12099" : 1,
+        "13125" : 1,
+        "13355" : 1,
+        "13627" : 1,
+        "13629" : 2,
+        "14057" : 1,
+        "14513" : 1,
+        "15537" : 1,
+        "20097" : 2,
+        "20457" : 3,
+        "30173" : 2,
+        "33719" : 1,
+        "38440" : 3,
+        "40210" : 2,
+        "44787" : 2,
+        "50676" : 1,
+        "51103" : 3,
+        "60322" : 2,
+        "60487" : 3,
+        "65183" : 1,
+        "70174" : 2,
+        "70567" : 3,
+        "76133" : 2,
+        "76275" : 3,
+        "80331" : 1,
+        "80637" : 2,
+        "80639" : 2,
+        "80807" : 3,
+        "83026" : 3,
+        "90489" : 2,
+        "99091" : 3
+      },
+      "maxCount" : 37
+    },
+    "arbeitgeber" : {
+      "counts" : {
+        "Albert Schweitzer Stiftung für unsere Mitwelt" : 1,
+        "Berliner Feuerwehr PolBln Dir ZS Pers B 55" : 1,
+        "Bundesnotarkammer" : 1,
+        "DKB Service GmbH" : 1,
+        "DUT Wirtschaftsfachschule GmbH & Co. Berliner Ausbildungs- und Beratungs-KG" : 1,
+        "Deutsche Welle" : 1,
+        "Dipl.-Ing. Gennadi Rouditser D.I.R.A. Arbeitsvermittlung & Unternehmensberatung" : 3,
+        "Forto Logistics SE & Co. KG" : 1,
+        "Helios Verwaltung Ost GmbH" : 1,
+        "HelloFresh SE" : 2,
+        "JetBrains GmbH" : 2,
+        "Johannesstift Diakonie gAG" : 1,
+        "Kassenärztliche Vereinigung Berlin" : 1,
+        "NG Engineering Consulting GmbH" : 1,
+        "NTT DATA Deutschland SE" : 3,
+        "OEDIV" : 1,
+        "Siemens Energy Global GmbH & Co. KG" : 3,
+        "Syncwork" : 1,
+        "Tele Columbus Netz GmbH -(Leipzig)" : 1,
+        "Tierarzt Plus GmbH" : 1,
+        "Vermaat Deutschland Services GmbH" : 1,
+        "Verti Versicherung AG" : 1,
+        "Vilo-Personal GmbH Leipziger P" : 1,
+        "Zalando SE" : 1,
+        "Zentralinstitut kassenärztliche Versorgung" : 1,
+        "Zukunft-Umwelt-Gesellschaft ZUG gGmbH" : 1,
+        "alfatraining Bildungszentrum GmbH" : 2,
+        "enersis Europe GmbH" : 1
+      },
+      "maxCount" : 37
+    },
+    "beruf" : {
+      "counts" : {
+        "Bachelor Professional - IT (Informationssicherheit)" : 1,
+        "Beteiligungsmanager/in" : 2,
+        "Betriebswirt/in (Hochschule) - Touristik" : 1,
+        "Betriebswirt/in - allgemeine Betriebswirtschaft" : 1,
+        "Business-Analyst/in" : 6,
+        "Business-Unit Leiter/in" : 1,
+        "Controller/in" : 1,
+        "Data Engineer" : 2,
+        "Data Scientist" : 5,
+        "Data-Analyst/in" : 17,
+        "Data-Warehouse-Analyst/in" : 3,
+        "Datenbankadministrator/in" : 1,
+        "Digital-Analyst/in" : 2,
+        "ERP-Berater/in - ERP-Consultant" : 1,
+        "Fachinformatiker/in - Anwendungsentwicklung" : 1,
+        "Fachinformatiker/in - Daten- und Prozessanalyse" : 1,
+        "Fachinformatiker/in - Systemintegration" : 1,
+        "IT-Berater/in" : 1,
+        "IT-Lösungsentwickler/in" : 1,
+        "Informatiker/in" : 2,
+        "Informationsmanager/in" : 1,
+        "KI-Manager/in" : 1,
+        "Koch/Köchin" : 1,
+        "Leiter/in - Supply-Chain-Management" : 1,
+        "Marketingfachkraft/-assistent/in" : 2,
+        "Mathematiker/in" : 1,
+        "Performance-Marketing-Manager/in" : 1,
+        "SEA-Manager/in" : 1,
+        "Softwareentwickler/in" : 1,
+        "Unternehmensberater/in" : 1,
+        "Vertriebs-Geschäftsführer/in" : 1,
+        "Wirtschaftsinformatiker/in (Fachschule)/Bachelor Professional in Wirtschaft" : 1
+      },
+      "maxCount" : 37
+    },
+    "homeoffice" : {
+      "counts" : {
+        "prozentual" : 4,
+        "nv_false" : 4,
+        "nv_true" : 16
+      },
+      "maxCount" : 37
+    },
+    "angebotsart" : {
+      "counts" : {
+        "1" : 34,
+        "2" : 2,
+        "34" : 1
+      },
+      "maxCount" : 37
+    },
+    "branche" : {
+      "counts" : {
+        "1" : 1,
+        "11" : 7,
+        "13" : 5,
+        "18" : 1,
+        "21" : 1,
+        "27" : 3,
+        "28" : 1,
+        "29" : 3,
+        "4" : 3,
+        "6" : 1,
+        "7" : 2,
+        "9" : 3
+      },
+      "maxCount" : 37
+    },
+    "quereinstieg" : {
+      "counts" : {
+        "false" : 32,
+        "true" : 5
+      },
+      "maxCount" : 37
+    },
+    "arbeitszeit" : {
+      "counts" : {
+        "snw" : 3,
+        "tz" : 10,
+        "vz" : 33
+      },
+      "maxCount" : 37
+    },
+    "eintrittsdatum" : {
+      "counts" : {
+        "10_01_01-now" : 33,
+        "26_09_01-26_10_01" : 13
+      },
+      "maxCount" : 37
+    },
+    "zeitarbeit" : {
+      "counts" : {
+        "false" : 37
+      },
+      "maxCount" : 37
+    },
+    "topberufsfeld" : {
+      "counts" : {
+        "IT-Netzwerktechnik, -Administration, -Organisation" : 18,
+        "Informatik" : 7,
+        "Softwareentwicklung und Programmierung" : 3,
+        "Unternehmensorganisation und -strategie" : 4,
+        "Werbung und Marketing" : 2,
+        "Versicherungs- und Finanzdienstleistungen" : 1,
+        "Speisenzubereitung" : 1,
+        "Rechnungswesen, Controlling und Revision" : 1
+      },
+      "scores" : {
+        "IT-Netzwerktechnik, -Administration, -Organisation" : 280153,
+        "Informatik" : 34028,
+        "Softwareentwicklung und Programmierung" : 10772,
+        "Unternehmensorganisation und -strategie" : 5565,
+        "Werbung und Marketing" : 3653,
+        "Versicherungs- und Finanzdienstleistungen" : 324,
+        "Speisenzubereitung" : 195,
+        "Rechnungswesen, Controlling und Revision" : 140
+      },
+      "maxCount" : 37
+    }
+  }
+}

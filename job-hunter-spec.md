@@ -17,7 +17,7 @@ Two components, deliberately nothing more:
 **Primary source: Bundesagentur für Arbeit — Jobsuche API.**
 
 ```
-GET https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/app/jobs
+GET https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v6/jobs
 Header: X-API-Key: jobboerse-jobsuche
 ```
 
@@ -30,7 +30,7 @@ Why this one, over StepStone, Indeed, Adzuna, or ATS endpoints:
 | Legality | Official public API of a federal agency. No ToS grey zone, no bot detection to fight |
 | Coverage | The largest job database in Germany (~1M postings), incl. EU roles posted to the German market |
 | Format | JSON out of the box — no HTML parsing, no BeautifulSoup, no breakage when a site redesigns |
-| Filters | Location + radius, keyword, publication age, contract type, remote (`arbeitszeit=ho`) |
+| Filters | Location + radius, keyword, publication age, contract type (remote is client-side — see below) |
 
 The alternatives were rejected for concrete reasons, not preference: Indeed retired its
 Publisher API; StepStone has no public search API and active bot protection; Adzuna's free
@@ -46,17 +46,32 @@ end to end, not before.
 
 | Purpose | Call |
 |---|---|
-| Search | `/pc/v4/app/jobs?was={kw}&wo={city}&umkreis={km}&size=100&page={n}&veroeffentlichtseit=7` |
-| Detail | `/pc/v4/jobdetails/{refnr}` — needed for the full description text |
+| Search | `/pc/v6/jobs?was={kw}&wo={city}&umkreis={km}&size=100&page={n}&veroeffentlichtseit=7` |
+| Detail | `/pc/v4/jobdetails/{base64(referenznummer)}` — needed for the full description text |
 
-Useful params: `angebotsart=1` (regular employment), `arbeitszeit=ho` (remote),
+The detail path takes the **base64-encoded** reference number, not the raw one. Passing the
+raw `referenznummer` returns 404.
+
+Useful params, all verified against live responses: `angebotsart=1` (regular employment),
 `befristung=2` (permanent), `veroeffentlichtseit=0..100` (days since publication),
-`pav=false` (exclude private recruiters — cuts a lot of noise).
+`pav=false` (exclude private recruiters — cuts a lot of noise). Default `size` is 25, so
+pass it explicitly.
 
-> **Verify before coding.** Run one search call from your laptop and save the raw
-> response to `samples/ba_search.json`. Build the parser against that file, not against
-> assumptions. Note that the search list gives title, employer, and location; the full
-> description requires the detail call.
+**No server-side remote filter.** The old `arbeitszeit=ho` returns zero results on v6, and
+`homeofficemoeglich=true` as a query param is silently ignored (it returns the unfiltered
+count). Filter on the `homeofficemoeglich` boolean in the response instead — client-side,
+in `sources.py`.
+
+> **Version history — do not revert.** The original spec targeted `/pc/v4/app/jobs`, which
+> now returns **403 on every request** (1-byte body, no auth challenge — retired, not a key
+> problem). `/pc/v2/jobs` is likewise 403. `/pc/v6/jobs` is the live endpoint and the field
+> names changed with it (see §4). If a tutorial or older example shows `v4/app`, it predates
+> this change.
+
+> **Verified before coding.** Real responses are saved to `samples/ba_search.json` and
+> `samples/ba_detail.json`. Build the parser against those files, not against assumptions.
+> Note that the search list gives title, employer, and location; the full description
+> requires the detail call.
 
 ---
 
@@ -85,6 +100,7 @@ job-hunter/
 ├── score.py             Job × Profile → score + reasons
 ├── report.py            ranked jobs → markdown digest
 ├── run.py               the pipeline, ~40 lines
+├── samples/             real API responses, committed — the parser's fixtures
 ├── data/jobs.db
 └── out/digest-2026-09-09.md
 ```
@@ -126,17 +142,27 @@ right and the two halves can be developed independently.
 **`id`** = first 12 hex chars of `sha1(source + external_id)`. Stable across runs, so
 re-fetching the same posting updates rather than duplicates it.
 
-**Field mapping (Arbeitsagentur → schema):**
+**Field mapping (Arbeitsagentur v6 → schema).** Verified against a live response — these are
+*not* the v4 names, all of which changed:
 
-| Schema | API field |
+| Schema | API field (v6) |
 |---|---|
-| `external_id` | `refnr` |
-| `title` | `titel`, fallback `beruf` |
-| `company` | `arbeitgeber` |
-| `location` | `arbeitsort.ort` |
-| `published` | `aktuelleVeroeffentlichungsdatum` |
-| `url` | `externeUrl`, else construct from `refnr` |
-| `description` | `stellenangebotsBeschreibung` (detail call) |
+| `external_id` | `referenznummer` |
+| `title` | `stellenangebotsTitel`, fallback `hauptberuf` |
+| `company` | `firma` |
+| `location` | `stellenlokationen[0].adresse.ort` |
+| `country` | `stellenlokationen[0].adresse.land` — full name (`"DEUTSCHLAND"`), map to ISO `"DE"` |
+| `remote` | `homeofficemoeglich` (bool, absent on ~⅓ of records → treat as false) |
+| `published` | `datumErsteVeroeffentlichung` |
+| `url` | `externeURL` (capital URL), else construct from `referenznummer` |
+| `description` | `stellenangebotsBeschreibung` (detail call — the one name that survived) |
+
+Search results are under **`ergebnisliste`**, not `stellenangebote`. The envelope is
+`{ergebnisliste, maxErgebnisse, page, size, woOutput, facetten}`.
+
+`externeURL` is present on only ~20% of records, so the constructed-URL fallback is the
+main path, not the exception — check that the URL you build actually resolves before
+trusting it in the digest.
 
 Keep the untouched API response in a `raw` JSON column. Storage is free, and when a mapping
 turns out wrong in week 3 you can re-derive without re-fetching everything.
@@ -283,11 +309,11 @@ works from the command line.
 
 | # | Step | Done when |
 |---|---|---|
-| 1 | One `requests.get` to the search endpoint, dump to `samples/` | You have a real JSON file to look at |
+| 1 | ~~One `requests.get` to the search endpoint, dump to `samples/`~~ — **done**, see `samples/` | You have a real JSON file to look at |
 | 2 | `sources.py`: parse that file into `Job` objects | `python sources.py` prints 20 jobs |
 | 3 | `store.py`: schema + upsert + `get_new()` | Running twice inserts nothing the second time |
 | 4 | `run.py`: fetch → store, loop over `searches` | The DB fills up with real postings |
-| 5 | Add the detail call for descriptions | `description` is populated, not null |
+| 5 | Add the detail call for descriptions (base64 the refnr) | `description` is populated, not null |
 | 6 | `score.py`: filters + points + reasons | Scores look sane on 20 real jobs |
 | 7 | `report.py`: markdown digest | A digest file you would actually read |
 | 8 | Tune weights against real output | Top 5 are genuinely the best 5 |
@@ -313,10 +339,10 @@ an oversight:
 
 | Risk | Mitigation |
 |---|---|
-| API changes its response shape | `raw` column keeps originals; parser is one file |
+| API changes its response shape | **Already happened once** — v4 retired, every field renamed. `raw` column keeps originals; parser is one file; `samples/` are the regression fixtures |
 | Rate limiting | One run/day, `size=100`, ~0.5s sleep between calls |
 | German-language descriptions | Keyword lists carry both languages (`erfahrung`/`experience`) |
-| Too few results | Broaden `umkreis`, add search queries, lower threshold |
+| Too few results | Real datapoint: "Data Analyst" + Berlin + 30km = **37 total**. Broaden `umkreis`, add search queries, lower threshold |
 
 ---
 
