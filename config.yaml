@@ -10,10 +10,14 @@ searches:
     umkreis: 30
 
 fetch:
-  size: 100
-  veroeffentlichtseit: 7
-  pav: false
-  max_pages: 10
-  sleep_seconds: 0.5
+  arbeitsagentur:
+    size: 100
+    veroeffentlichtseit: 7
+    pav: false
+    max_pages: 10
+    sleep_seconds: 0.5
+  arbeitnow:
+    max_pages: 5
+    sleep_seconds: 0.3
 
 db_path: "data/jobs.db"

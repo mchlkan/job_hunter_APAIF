@@ -1,5 +1,6 @@
 import hashlib
 import json
+import re
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -10,7 +11,17 @@ import requests
 SEARCH_URL = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v6/jobs"
 API_KEY = "jobboerse-jobsuche"
 
+ARBEITNOW_URL = "https://www.arbeitnow.com/api/job-board-api"
+
 COUNTRY_MAP = {"DEUTSCHLAND": "DE"}
+
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def _strip_html(text: Optional[str]) -> Optional[str]:
+    if not text:
+        return text
+    return _TAG_RE.sub(" ", text)
 
 
 @dataclass
@@ -151,6 +162,115 @@ class Arbeitsagentur:
             return None
         resp.raise_for_status()
         return resp.json().get("stellenangebotsBeschreibung")
+
+
+def _map_arbeitnow_record(record: dict, source: str) -> Optional[Job]:
+    external_id = record.get("slug")
+    if not external_id:
+        return None
+
+    title = record.get("title")
+    company = record.get("company_name")
+    location = record.get("location")
+    country = "DE" if location and "germany" in location.lower() else None
+    remote = bool(record.get("remote", False))
+
+    created_at = record.get("created_at")
+    published = None
+    if created_at:
+        published = datetime.fromtimestamp(created_at, tz=timezone.utc).date().isoformat()
+
+    return Job(
+        id=_make_id(source, external_id),
+        source=source,
+        external_id=external_id,
+        title=title,
+        company=company,
+        location=location,
+        country=country,
+        remote=remote,
+        published=published,
+        url=record.get("url"),
+        description=_strip_html(record.get("description")),
+        raw=json.dumps(record, ensure_ascii=False),
+        fetched_at=datetime.now(timezone.utc).isoformat(),
+    )
+
+
+def _matches_query(job: Job, query: Query) -> bool:
+    keywords = [w.lower() for w in query.was.split() if w]
+    title = (job.title or "").lower()
+    if keywords and not any(kw in title for kw in keywords):
+        return False
+
+    wo = (query.wo or "").strip().lower()
+    if wo == "remote":
+        return job.remote
+    if wo:
+        return wo in (job.location or "").lower() or job.remote
+    return True
+
+
+class Arbeitnow:
+    """Second source, deferred in the original spec. No API key, no server-side
+    keyword/location filter — the API returns its full feed per page, so filtering
+    against `Query` happens client-side after fetch. Descriptions arrive inline,
+    so there is no separate detail call and no description backfill needed.
+
+    The feed is identical regardless of query, so pages are fetched once per run
+    and cached — calling fetch() for N searches costs the same handful of page
+    requests as calling it once. This also keeps well clear of the API's rate
+    limit, which returns plain 429s with no auth to fall back on."""
+
+    name = "arbeitnow"
+
+    def __init__(self, fetch_config: Optional[dict] = None):
+        self.fetch_config = fetch_config or {}
+        self._cache: Optional[list] = None
+
+    def _fetch_all(self) -> list:
+        max_pages = self.fetch_config.get("max_pages", 5)
+        sleep_seconds = self.fetch_config.get("sleep_seconds", 0.3)
+
+        jobs = []
+        seen_ids = set()
+        page = 1
+        while page <= max_pages:
+            data = self._get_page(page)
+            records = data.get("data") or []
+            if not records:
+                break
+
+            for record in records:
+                job = _map_arbeitnow_record(record, self.name)
+                if job and job.id not in seen_ids:
+                    seen_ids.add(job.id)
+                    jobs.append(job)
+
+            if not data.get("links", {}).get("next"):
+                break
+
+            page += 1
+            time.sleep(sleep_seconds)
+
+        return jobs
+
+    def _get_page(self, page: int) -> dict:
+        for attempt in range(3):
+            resp = requests.get(ARBEITNOW_URL, params={"page": page}, timeout=15)
+            if resp.status_code == 429:
+                wait = int(resp.headers.get("Retry-After", 2 * (attempt + 1)))
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp.json()
+        resp.raise_for_status()
+        return {}
+
+    def fetch(self, query: Query) -> list:
+        if self._cache is None:
+            self._cache = self._fetch_all()
+        return [job for job in self._cache if _matches_query(job, query)]
 
 
 def _parse_sample_file(path: str, source: str = "arbeitsagentur") -> list:
