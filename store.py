@@ -84,7 +84,7 @@ def get_new(conn: sqlite3.Connection, day: str) -> list:
 
 
 def needs_description(conn: sqlite3.Connection) -> list:
-    cur = conn.execute("SELECT id, external_id FROM jobs WHERE description IS NULL")
+    cur = conn.execute("SELECT id, external_id, source FROM jobs WHERE description IS NULL")
     return cur.fetchall()
 
 

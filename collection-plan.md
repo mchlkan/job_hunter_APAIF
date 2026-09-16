@@ -36,22 +36,26 @@ API, is what decides whether the digest is thin.
 
 ## 1. Environment
 
-The machine has **Python 3.9.6** (macOS system Python) and neither `requests` nor `PyYAML`
-installed. There is no newer interpreter present.
+Managed with **conda**, not a stdlib venv — the project originally used `python3 -m venv
+.venv` since the machine only had a keyless system Python 3.9 at the time; it has since been
+migrated to conda for consistency with the rest of the coursework.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install requests pyyaml
-pip freeze > requirements.txt
+conda create -n job-hunter python=3.11 -y
+conda activate job-hunter
+pip install -r requirements.txt
 ```
 
-3.9 has one consequence for the code: **`X | None` union syntax is 3.10+**, so use
-`Optional[str]` from `typing`. `list[Job]` is fine (PEP 585 landed in 3.9), so the spec's
-`Source` protocol works as written.
+`requirements.txt` is committed and pinned via `pip freeze`; regenerate it after adding a
+dependency with `pip freeze > requirements.txt` inside the activated env.
 
-Add `.venv/`, `data/`, `out/` and `.DS_Store` to `.gitignore`. `samples/` stays tracked —
-those files are the parser's fixtures.
+The codebase targets 3.9+ syntax regardless of which interpreter runs it: `Optional[str]`
+from `typing` rather than `X | None` (3.10+), though `list[Job]` is fine (PEP 585 landed in
+3.9). This was decided when only 3.9 was available and left unchanged after the move to
+conda/3.11, since there's no cost to staying compatible with the older syntax.
+
+`data/`, `out/` and `.DS_Store` are gitignored. `samples/` stays tracked — those files are
+the parser's fixtures.
 
 ---
 
