@@ -3,49 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>job hunter</title>
+  <title>jobhunter register</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="masthead">
-    <div class="masthead-title">
-      <span class="wire-dot"></span>
-      <h1>JOB HUNTER</h1>
-      <span class="masthead-sub">DE / EU wire &mdash; data &amp; BI roles</span>
+  <header class="register-head">
+    <div class="wordmark">
+      <span class="status-dot" aria-hidden="true"></span>
+      jobhunter
     </div>
-    <div id="candidate-strip" class="candidate-strip">
-      <span class="candidate-empty">no CV on file</span>
+    <p class="register-tagline">tracking data &amp; analytics roles across Germany and the EU</p>
+    <div id="candidate-strip" class="candidate-status">
+      <span class="candidate-empty">No CV on file yet.</span>
     </div>
   </header>
 
-  <section class="stats-rail" id="stats-rail">
-    <div class="stat"><span class="stat-value" id="stat-total">&mdash;</span><span class="stat-label">postings tracked</span></div>
-    <div class="stat"><span class="stat-value" id="stat-scored">&mdash;</span><span class="stat-label">scored</span></div>
-    <div class="stat" id="stat-sources"><span class="stat-label">by source</span></div>
+  <section class="ledger-summary" id="stats-rail">
+    <div class="figure"><span class="figure-value" id="stat-total">&mdash;</span><span class="figure-label">postings on file</span></div>
+    <div class="figure"><span class="figure-value" id="stat-scored">&mdash;</span><span class="figure-label">scored</span></div>
+    <div class="figure sources" id="stat-sources"><span class="figure-label">by source</span></div>
   </section>
 
-  <section class="controls">
-    <input id="f-q" type="search" placeholder="title or company&hellip;" autocomplete="off" />
+  <section class="toolbar">
+    <input id="f-q" type="search" placeholder="search title or company" autocomplete="off" />
     <select id="f-source">
       <option value="">all sources</option>
-      <option value="arbeitsagentur">arbeitsagentur</option>
-      <option value="arbeitnow">arbeitnow</option>
-      <option value="eures">eures</option>
+      <option value="arbeitsagentur">Bundesagentur (BA)</option>
+      <option value="arbeitnow">Arbeitnow (AN)</option>
+      <option value="eures">EURES (EU)</option>
     </select>
     <select id="f-remote">
       <option value="">on-site or remote</option>
       <option value="true">remote only</option>
       <option value="false">on-site only</option>
     </select>
-    <label class="upload-btn">
-      upload CV
+    <label class="add-cv">
+      Add CV
       <input id="f-cv" type="file" accept="application/pdf" hidden />
     </label>
   </section>
 
   <main>
-    <ol id="job-list" class="job-list" aria-live="polite"></ol>
-    <p id="empty-state" class="empty-state" hidden>nothing matches these filters yet.</p>
+    <div class="register" role="table" aria-label="job postings">
+      <div class="register-row register-head-row" role="row">
+        <span role="columnheader">src</span>
+        <span role="columnheader">posting</span>
+        <span role="columnheader" class="col-location">location</span>
+        <span role="columnheader" class="col-posted">posted</span>
+        <span role="columnheader" class="col-score">score</span>
+      </div>
+      <div id="job-list" role="rowgroup"></div>
+    </div>
+    <p id="empty-state" class="empty-state" hidden>No postings match these filters. Try widening them.</p>
   </main>
 
   <div id="detail-panel" class="detail-panel" hidden>

@@ -1,7 +1,7 @@
-const SOURCE_COLOR = {
-  arbeitsagentur: "var(--source-arbeitsagentur)",
-  arbeitnow: "var(--source-arbeitnow)",
-  eures: "var(--source-eures)",
+const SOURCE_CODE = {
+  arbeitsagentur: { code: "BA", cls: "ba", label: "Bundesagentur" },
+  arbeitnow: { code: "AN", cls: "an", label: "Arbeitnow" },
+  eures: { code: "EU", cls: "eu", label: "EURES" },
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -21,35 +21,8 @@ function showToast(msg) {
 }
 
 function fmtDate(iso) {
-  if (!iso) return "date n/a";
-  return iso.slice(0, 10);
-}
-
-function jobCard(job) {
-  const li = document.createElement("li");
-  li.className = "job-card";
-  li.style.setProperty("--card-color", SOURCE_COLOR[job.source] || "var(--ink-dim)");
-
-  const scoreHtml = job.score === null || job.score === undefined
-    ? `<div class="job-score unscored">unscored</div>`
-    : `<div class="job-score"><span class="num">${job.score.toFixed(0)}</span> / 100</div>`;
-
-  li.innerHTML = `
-    <div class="job-title">${escapeHtml(job.title || "untitled")}</div>
-    ${scoreHtml}
-    <div class="job-meta">
-      <span>${escapeHtml(job.company || "unknown company")}</span>
-      <span class="sep">&middot;</span>
-      <span>${escapeHtml(job.location || "location n/a")}</span>
-      <span class="sep">&middot;</span>
-      <span>${job.source}</span>
-      <span class="sep">&middot;</span>
-      <span>${fmtDate(job.published)}</span>
-      ${job.remote ? '<span class="sep">&middot;</span><span class="remote-badge">remote</span>' : ""}
-    </div>
-  `;
-  li.addEventListener("click", () => openDetail(job.id));
-  return li;
+  if (!iso) return "—";
+  return iso.slice(5, 10); // MM-DD, the year rarely matters day-to-day here
 }
 
 function escapeHtml(s) {
@@ -58,23 +31,48 @@ function escapeHtml(s) {
   return div.innerHTML;
 }
 
+function srcBadge(source) {
+  const src = SOURCE_CODE[source] || { code: source.slice(0, 2).toUpperCase(), cls: "" };
+  return `<span class="src-code ${src.cls}" title="${escapeHtml(src.label || source)}">${src.code}</span>`;
+}
+
+function jobRow(job) {
+  const row = document.createElement("div");
+  row.className = "register-row job-row";
+  row.setAttribute("role", "row");
+
+  const scoreHtml = job.score === null || job.score === undefined
+    ? `<span class="score-cell empty">—</span>`
+    : `<span class="score-cell">${Math.round(job.score)}</span>`;
+
+  row.innerHTML = `
+    <span role="cell">${srcBadge(job.source)}</span>
+    <span role="cell">
+      <div class="posting-title">${escapeHtml(job.title || "untitled posting")}</div>
+      <div class="posting-company">${escapeHtml(job.company || "company withheld")}${job.remote ? ' <span class="remote-flag">remote</span>' : ""}</div>
+    </span>
+    <span role="cell" class="col-location">${escapeHtml(job.location || "—")}</span>
+    <span role="cell" class="col-posted">${fmtDate(job.published)}</span>
+    <span role="cell">${scoreHtml}</span>
+  `;
+  row.addEventListener("click", () => openDetail(job.id));
+  return row;
+}
+
 async function openDetail(jobId) {
   const res = await fetch(`/api/jobs/${jobId}`);
-  if (!res.ok) return showToast("couldn't load that posting");
+  if (!res.ok) return showToast("Couldn't load that posting.");
   const job = await res.json();
 
   detailBody.innerHTML = `
-    <h2>${escapeHtml(job.title || "untitled")}</h2>
-    <div class="job-meta">
-      <span>${escapeHtml(job.company || "unknown company")}</span>
-      <span class="sep">&middot;</span>
-      <span>${escapeHtml(job.location || "location n/a")}</span>
-      <span class="sep">&middot;</span>
-      <span>${job.source}</span>
-      ${job.remote ? '<span class="sep">&middot;</span><span class="remote-badge">remote</span>' : ""}
+    ${srcBadge(job.source)}
+    <h2>${escapeHtml(job.title || "untitled posting")}</h2>
+    <div class="detail-meta">
+      <div>${escapeHtml(job.company || "company withheld")}, ${escapeHtml(job.location || "location unknown")}</div>
+      ${job.remote ? '<span class="remote-flag">remote</span>' : ""}
     </div>
-    ${job.url ? `<a class="apply-link" href="${job.url}" target="_blank" rel="noopener">view posting &rarr;</a>` : ""}
-    <div class="description">${escapeHtml(job.description || "no description fetched yet.")}</div>
+    ${job.url ? `<a class="apply-link" href="${job.url}" target="_blank" rel="noopener">Original posting</a>` : ""}
+    <div class="description">${escapeHtml(job.description || "No description was fetched for this posting.")}</div>
   `;
   detailPanel.hidden = false;
 }
@@ -94,12 +92,12 @@ async function loadJobs() {
   if (remote) params.set("remote", remote);
 
   const res = await fetch(`/api/jobs?${params}`);
-  if (!res.ok) return showToast("failed to load postings");
+  if (!res.ok) return showToast("Couldn't load postings.");
   const data = await res.json();
 
   jobList.innerHTML = "";
   emptyState.hidden = data.jobs.length > 0;
-  for (const job of data.jobs) jobList.appendChild(jobCard(job));
+  for (const job of data.jobs) jobList.appendChild(jobRow(job));
 }
 
 async function loadStats() {
@@ -112,8 +110,9 @@ async function loadStats() {
   const tally = document.createElement("div");
   tally.className = "source-tally";
   for (const [source, count] of Object.entries(stats.by_source)) {
+    const src = SOURCE_CODE[source] || { code: source };
     const span = document.createElement("span");
-    span.innerHTML = `<span class="dot" style="background:${SOURCE_COLOR[source] || "var(--ink-dim)"}"></span>${source} ${count}`;
+    span.innerHTML = `${src.code} <b>${count}</b>`;
     tally.appendChild(span);
   }
   const el = $("#stat-sources");
@@ -125,27 +124,24 @@ async function loadCandidate() {
   const strip = $("#candidate-strip");
   const res = await fetch("/api/candidate");
   if (!res.ok) {
-    strip.innerHTML = '<span class="candidate-empty">no CV on file</span>';
+    strip.innerHTML = '<span class="candidate-empty">No CV on file yet.</span>';
     return;
   }
   const c = await res.json();
-  strip.innerHTML = `
-    <span class="name">${escapeHtml(c.name || "unnamed candidate")}</span>
-    <span>&middot; ${c.skills.length} skills matched</span>
-  `;
+  strip.innerHTML = `<span class="name">${escapeHtml(c.name || "unnamed candidate")}</span> (${c.skills.length} skills on file)`;
 }
 
 async function uploadCv(file) {
   const form = new FormData();
   form.append("file", file);
-  showToast("parsing CV…");
+  showToast("Reading CV…");
   const res = await fetch("/api/cv", { method: "POST", body: form });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    return showToast(`upload failed: ${err.detail || res.statusText}`);
+    return showToast(`Couldn't read that CV: ${err.detail || res.statusText}`);
   }
   const candidate = await res.json();
-  showToast(`parsed ${candidate.name || "candidate"} — ${candidate.skills.length} skills`);
+  showToast(`Filed ${candidate.name || "candidate"} (${candidate.skills.length} skills found).`);
   loadCandidate();
 }
 
