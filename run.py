@@ -1,6 +1,7 @@
 import time
 from datetime import datetime, timezone
 
+import requests
 import yaml
 
 import store
@@ -23,7 +24,12 @@ def main():
     for source in sources:
         for s in config["searches"]:
             query = Query(was=s["was"], wo=s["wo"], umkreis=s.get("umkreis", 0))
-            jobs = source.fetch(query)
+            try:
+                jobs = source.fetch(query)
+            except requests.exceptions.RequestException as e:
+                print(f"  [{source.name}] {s['was']!r} in {s['wo']}: FAILED, skipping "
+                      f"({e.__class__.__name__})")
+                continue
             new_count = store.upsert(conn, jobs)
             total_fetched += len(jobs)
             total_new += new_count
@@ -36,7 +42,14 @@ def main():
     for job_id, external_id, source_name in pending:
         if source_name != ba.name:
             continue
-        desc = ba.fetch_description(external_id)
+        try:
+            desc = ba.fetch_description(external_id)
+        except requests.exceptions.RequestException as e:
+            print(f"  [{ba.name}] description for {external_id}: FAILED, skipping "
+                  f"({e.__class__.__name__})")
+            skipped += 1
+            time.sleep(sleep_seconds)
+            continue
         if desc:
             store.set_description(conn, job_id, desc)
             filled += 1
