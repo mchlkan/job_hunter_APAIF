@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 
 import yaml
 
+import score
 import store
 from sources import Arbeitnow, Arbeitsagentur, Eures, Query
 
@@ -47,9 +48,21 @@ def main():
     today = datetime.now(timezone.utc).date().isoformat()
     new_today = store.get_new(conn, today)
 
+    profile = config.get("profile", {})
+    alert_threshold = config.get("alert_threshold", 0)
+    scored = 0
+    above_threshold = 0
+    for row in new_today:
+        match = score.score_job(store.job_from_row(row), profile)
+        store.set_score(conn, row["id"], match.score if match else 0.0, match.reasons if match else [])
+        scored += 1
+        if match and match.score >= alert_threshold:
+            above_threshold += 1
+
     print(f"\nfetched {total_fetched} postings, {total_new} new to the store")
     print(f"descriptions: {filled} filled, {skipped} skipped (404 / expired)")
     print(f"new today ({today}): {len(new_today)}")
+    print(f"scored {scored} new jobs, {above_threshold} above alert_threshold ({alert_threshold})")
 
     conn.close()
 
