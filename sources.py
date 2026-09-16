@@ -208,7 +208,9 @@ def _matches_query(job: Job, query: Query) -> bool:
     if wo == "remote":
         return job.remote
     if wo:
-        return wo in (job.location or "").lower() or job.remote
+        # A job's `remote` flag says nothing about which country it's remote
+        # *from* — a Germany-only remote role must not match a "Spain" query.
+        return wo in (job.location or "").lower()
     return True
 
 
