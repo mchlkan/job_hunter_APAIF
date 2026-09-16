@@ -21,8 +21,10 @@ function showToast(msg) {
 }
 
 function fmtDate(iso) {
-  if (!iso) return "—";
-  return iso.slice(5, 10); // MM-DD, the year rarely matters day-to-day here
+  if (!iso) return "date unknown";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
 function escapeHtml(s) {
@@ -31,32 +33,33 @@ function escapeHtml(s) {
   return div.innerHTML;
 }
 
-function srcBadge(source) {
+function srcTag(source, inline = false) {
   const src = SOURCE_CODE[source] || { code: source.slice(0, 2).toUpperCase(), cls: "" };
-  return `<span class="src-code ${src.cls}" title="${escapeHtml(src.label || source)}">${src.code}</span>`;
+  const cls = inline ? "src-inline" : "src-tag";
+  return `<span class="${cls} ${src.cls}" title="${escapeHtml(src.label || source)}">${src.code}</span>`;
 }
 
-function jobRow(job) {
-  const row = document.createElement("div");
-  row.className = "register-row job-row";
-  row.setAttribute("role", "row");
+function jobCard(job) {
+  const li = document.createElement("li");
+  li.className = "job-card";
 
   const scoreHtml = job.score === null || job.score === undefined
-    ? `<span class="score-cell empty">—</span>`
-    : `<span class="score-cell">${Math.round(job.score)}</span>`;
+    ? `<span class="job-score empty">&mdash;</span>`
+    : `<span class="job-score">${Math.round(job.score)}</span>`;
 
-  row.innerHTML = `
-    <span role="cell">${srcBadge(job.source)}</span>
-    <span role="cell">
-      <div class="posting-title">${escapeHtml(job.title || "untitled posting")}</div>
-      <div class="posting-company">${escapeHtml(job.company || "company withheld")}${job.remote ? ' <span class="remote-flag">remote</span>' : ""}</div>
-    </span>
-    <span role="cell" class="col-location">${escapeHtml(job.location || "—")}</span>
-    <span role="cell" class="col-posted">${fmtDate(job.published)}</span>
-    <span role="cell">${scoreHtml}</span>
+  li.innerHTML = `
+    ${srcTag(job.source)}
+    <div>
+      <div class="job-title">${escapeHtml(job.title || "untitled posting")}</div>
+      <div class="job-meta">
+        ${escapeHtml(job.company || "company withheld")} &middot; ${escapeHtml(job.location || "location unknown")} &middot; ${fmtDate(job.published)}
+        ${job.remote ? '<span class="remote-flag">Remote</span>' : ""}
+      </div>
+    </div>
+    ${scoreHtml}
   `;
-  row.addEventListener("click", () => openDetail(job.id));
-  return row;
+  li.addEventListener("click", () => openDetail(job.id));
+  return li;
 }
 
 async function openDetail(jobId) {
@@ -65,13 +68,13 @@ async function openDetail(jobId) {
   const job = await res.json();
 
   detailBody.innerHTML = `
-    ${srcBadge(job.source)}
+    ${srcTag(job.source)}
     <h2>${escapeHtml(job.title || "untitled posting")}</h2>
     <div class="detail-meta">
       <div>${escapeHtml(job.company || "company withheld")}, ${escapeHtml(job.location || "location unknown")}</div>
-      ${job.remote ? '<span class="remote-flag">remote</span>' : ""}
+      ${job.remote ? '<span class="remote-flag">Remote</span>' : ""}
     </div>
-    ${job.url ? `<a class="apply-link" href="${job.url}" target="_blank" rel="noopener">Original posting</a>` : ""}
+    ${job.url ? `<a class="apply-link" href="${job.url}" target="_blank" rel="noopener">View original posting</a>` : ""}
     <div class="description">${escapeHtml(job.description || "No description was fetched for this posting.")}</div>
   `;
   detailPanel.hidden = false;
@@ -97,7 +100,7 @@ async function loadJobs() {
 
   jobList.innerHTML = "";
   emptyState.hidden = data.jobs.length > 0;
-  for (const job of data.jobs) jobList.appendChild(jobRow(job));
+  for (const job of data.jobs) jobList.appendChild(jobCard(job));
 }
 
 async function loadStats() {
@@ -107,28 +110,21 @@ async function loadStats() {
   $("#stat-total").textContent = stats.total_jobs;
   $("#stat-scored").textContent = stats.scored_jobs;
 
-  const tally = document.createElement("div");
-  tally.className = "source-tally";
-  for (const [source, count] of Object.entries(stats.by_source)) {
-    const src = SOURCE_CODE[source] || { code: source };
-    const span = document.createElement("span");
-    span.innerHTML = `${src.code} <b>${count}</b>`;
-    tally.appendChild(span);
-  }
-  const el = $("#stat-sources");
-  el.querySelectorAll(".source-tally").forEach((n) => n.remove());
-  el.appendChild(tally);
+  const parts = Object.entries(stats.by_source).map(
+    ([source, count]) => `${srcTag(source, true)} ${count}`
+  );
+  $("#stat-sources").innerHTML = parts.join(", ");
 }
 
 async function loadCandidate() {
   const strip = $("#candidate-strip");
   const res = await fetch("/api/candidate");
   if (!res.ok) {
-    strip.innerHTML = '<span class="candidate-empty">No CV on file yet.</span>';
+    strip.innerHTML = '<span class="candidate-empty">No CV on file yet</span>';
     return;
   }
   const c = await res.json();
-  strip.innerHTML = `<span class="name">${escapeHtml(c.name || "unnamed candidate")}</span> (${c.skills.length} skills on file)`;
+  strip.innerHTML = `<span class="name">${escapeHtml(c.name || "unnamed candidate")}</span> &middot; ${c.skills.length} skills on file`;
 }
 
 async function uploadCv(file) {

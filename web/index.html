@@ -3,57 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>jobhunter register</title>
+  <title>jobhunter</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="register-head">
+  <header class="topbar">
     <div class="wordmark">
-      <span class="status-dot" aria-hidden="true"></span>
+      <span class="mark" aria-hidden="true">&#9992;</span>
       jobhunter
     </div>
-    <p class="register-tagline">tracking data &amp; analytics roles across Germany and the EU</p>
     <div id="candidate-strip" class="candidate-status">
-      <span class="candidate-empty">No CV on file yet.</span>
+      <span class="candidate-empty">No CV on file yet</span>
     </div>
-  </header>
-
-  <section class="ledger-summary" id="stats-rail">
-    <div class="figure"><span class="figure-value" id="stat-total">&mdash;</span><span class="figure-label">postings on file</span></div>
-    <div class="figure"><span class="figure-value" id="stat-scored">&mdash;</span><span class="figure-label">scored</span></div>
-    <div class="figure sources" id="stat-sources"><span class="figure-label">by source</span></div>
-  </section>
-
-  <section class="toolbar">
-    <input id="f-q" type="search" placeholder="search title or company" autocomplete="off" />
-    <select id="f-source">
-      <option value="">all sources</option>
-      <option value="arbeitsagentur">Bundesagentur (BA)</option>
-      <option value="arbeitnow">Arbeitnow (AN)</option>
-      <option value="eures">EURES (EU)</option>
-    </select>
-    <select id="f-remote">
-      <option value="">on-site or remote</option>
-      <option value="true">remote only</option>
-      <option value="false">on-site only</option>
-    </select>
     <label class="add-cv">
       Add CV
       <input id="f-cv" type="file" accept="application/pdf" hidden />
     </label>
+  </header>
+
+  <section class="hero">
+    <h1>Find your next data &amp; analytics role.</h1>
+    <p class="hero-sub" id="stats-line">
+      <span id="stat-total">&mdash;</span> postings tracked &middot;
+      <span id="stat-scored">&mdash;</span> scored &middot;
+      <span id="stat-sources"></span>
+    </p>
+
+    <div class="search-bar">
+      <div class="field field-grow">
+        <label for="f-q">Search</label>
+        <input id="f-q" type="search" placeholder="Title or company" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="f-source">Source</label>
+        <select id="f-source">
+          <option value="">All sources</option>
+          <option value="arbeitsagentur">Bundesagentur</option>
+          <option value="arbeitnow">Arbeitnow</option>
+          <option value="eures">EURES</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-remote">Location</label>
+        <select id="f-remote">
+          <option value="">On-site or remote</option>
+          <option value="true">Remote only</option>
+          <option value="false">On-site only</option>
+        </select>
+      </div>
+    </div>
   </section>
 
   <main>
-    <div class="register" role="table" aria-label="job postings">
-      <div class="register-row register-head-row" role="row">
-        <span role="columnheader">src</span>
-        <span role="columnheader">posting</span>
-        <span role="columnheader" class="col-location">location</span>
-        <span role="columnheader" class="col-posted">posted</span>
-        <span role="columnheader" class="col-score">score</span>
-      </div>
-      <div id="job-list" role="rowgroup"></div>
-    </div>
+    <ul id="job-list" class="job-list" aria-live="polite"></ul>
     <p id="empty-state" class="empty-state" hidden>No postings match these filters. Try widening them.</p>
   </main>
 
