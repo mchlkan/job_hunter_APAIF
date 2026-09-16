@@ -54,12 +54,12 @@ def extract_text(pdf_path: str) -> str:
     return _pdf_extract_text(pdf_path)
 
 
-def load_skills(path: str = "data/skills.json") -> list:
+def load_skills(path: str = "taxonomy/skills.json") -> list:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def load_roles(path: str = "data/roles.json") -> list:
+def load_roles(path: str = "taxonomy/roles.json") -> list:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 

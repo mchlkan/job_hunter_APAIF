@@ -24,7 +24,7 @@ markdown-it-py==4.2.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 murmurhash==1.0.15
-numpy==2.5.3
+numpy==2.4.6
 packaging==26.3
 pdfminer.six==20260107
 pluggy==1.6.0

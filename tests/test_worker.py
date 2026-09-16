@@ -12,9 +12,10 @@ from profiles.parser import Candidate, Experience
 def _setup_project(tmp_path, monkeypatch, sample_cv_pdf):
     monkeypatch.chdir(tmp_path)
     os.makedirs("data", exist_ok=True)
-    with open("data/skills.json", "w", encoding="utf-8") as f:
+    os.makedirs("taxonomy", exist_ok=True)
+    with open("taxonomy/skills.json", "w", encoding="utf-8") as f:
         json.dump(["Python", "SQL", "Docker", "Machine Learning"], f)
-    with open("data/roles.json", "w", encoding="utf-8") as f:
+    with open("taxonomy/roles.json", "w", encoding="utf-8") as f:
         json.dump(["Data Scientist", "Backend Engineer"], f)
 
     config = {
