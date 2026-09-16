@@ -1,13 +1,16 @@
+# wo: "" means no location filter — Arbeitsagentur falls back to nationwide
+# Germany (it has no EU reach), Arbeitnow falls back to EU-wide unfiltered.
+# Set wo to a city ("Berlin") or "Remote" to narrow either source.
 searches:
   - was: "Data Analyst"
-    wo: "Berlin"
-    umkreis: 30
+    wo: ""
+    umkreis: 0
   - was: "Business Intelligence"
-    wo: "Berlin"
-    umkreis: 30
+    wo: ""
+    umkreis: 0
   - was: "Werkstudent Data"
-    wo: "Berlin"
-    umkreis: 30
+    wo: ""
+    umkreis: 0
 
 fetch:
   arbeitsagentur:

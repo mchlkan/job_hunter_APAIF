@@ -109,12 +109,13 @@ class Arbeitsagentur:
         size = self.fetch_config.get("size", 100)
         max_pages = self.fetch_config.get("max_pages", 10)
         sleep_seconds = self.fetch_config.get("sleep_seconds", 0.5)
-        params_base = {
-            "was": query.was,
-            "wo": query.wo,
-            "umkreis": query.umkreis,
-            "size": size,
-        }
+        params_base = {"was": query.was, "size": size}
+        if query.wo:
+            # BA 400s on wo="" (must be omitted, not empty) and ignores umkreis
+            # without wo — so both stay out when there is no location filter,
+            # which falls back to a nationwide-Germany search.
+            params_base["wo"] = query.wo
+            params_base["umkreis"] = query.umkreis
         if "veroeffentlichtseit" in self.fetch_config:
             params_base["veroeffentlichtseit"] = self.fetch_config["veroeffentlichtseit"]
         if "pav" in self.fetch_config:
