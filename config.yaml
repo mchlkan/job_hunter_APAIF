@@ -1,6 +1,18 @@
-# wo: "" means no location filter — Arbeitsagentur falls back to nationwide
-# Germany (it has no EU reach), Arbeitnow falls back to EU-wide unfiltered.
-# Set wo to a city ("Berlin") or "Remote" to narrow either source.
+# wo is a normalized filter across all three sources (see sources.py's
+# COUNTRY_CODES / _resolve_country):
+#   ""            no location filter — Arbeitsagentur -> nationwide Germany,
+#                 Arbeitnow -> EU-wide unfiltered, Eures -> all EU/EEA
+#                 countries unfiltered (bounded by fetch.eures.max_pages)
+#   "Germany"     Arbeitsagentur -> nationwide (same as ""); Arbeitnow/Eures
+#                 -> only postings tagged/located in Germany
+#   "Spain" etc.  a recognized EU country -> Arbeitsagentur returns nothing
+#                 (Germany-only by nature); Arbeitnow/Eures filter to it
+#   "Berlin" etc. an unrecognized name is treated as a city: Arbeitsagentur
+#                 uses it as a real city+radius search; Arbeitnow matches it
+#                 as a location substring; Eures has no city filter, so it
+#                 falls back to unfiltered (same as "")
+#   "Remote"      Arbeitnow -> remote-flagged jobs only; Arbeitsagentur and
+#                 Eures have no remote flag, so this returns nothing for them
 searches:
   - was: "Data Analyst"
     wo: ""
@@ -20,6 +32,14 @@ fetch:
     max_pages: 10
     sleep_seconds: 0.5
   arbeitnow:
+    max_pages: 5
+    sleep_seconds: 0.3
+  eures:
+    # Unfiltered/no-country queries do loose per-word matching over a huge
+    # corpus (e.g. "Data Analyst" alone = ~450k EU-wide) — max_pages is what
+    # keeps that bounded, same role it plays for arbeitnow. A country-scoped
+    # search (wo: "Spain") is far more precise and can use more pages safely.
+    results_per_page: 50
     max_pages: 5
     sleep_seconds: 0.3
 

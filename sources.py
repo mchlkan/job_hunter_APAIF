@@ -17,16 +17,27 @@ EURES_URL = "https://europa.eu/eures/api/jv-searchengine/public/jv-search/search
 
 COUNTRY_MAP = {"DEUTSCHLAND": "DE"}
 
-# EURES filters by ISO2 country code server-side, not free-text location, so a
-# query's `wo` is only honoured here when it names one of these countries.
-# Anything else (a city name, "Remote") falls through unfiltered — see
-# Eures.fetch(). Extend this table as more countries are needed.
-EURES_COUNTRY_CODES = {
+# Shared across all three sources — this is what makes `wo` in config.yaml a
+# normalized filter rather than a per-source dialect: any source that can
+# filter by country (Eures server-side, Arbeitnow client-side against its
+# inferred `country` field) resolves `wo` through this one table. A source
+# with no country concept (Arbeitsagentur, which is Germany-only by nature)
+# still consults it, just to know when to skip a query entirely instead of
+# sending it as a nonsense city name. Limited to EU/EEA countries, since
+# that's what EURES's locationCodes actually accepts.
+COUNTRY_CODES = {
     "spain": "es", "germany": "de", "france": "fr", "netherlands": "nl",
     "italy": "it", "portugal": "pt", "poland": "pl", "austria": "at",
     "belgium": "be", "ireland": "ie", "sweden": "se", "denmark": "dk",
     "finland": "fi",
 }
+
+
+def _resolve_country(wo: str) -> Optional[str]:
+    """Map a query's `wo` to a lowercase ISO2 code if it names a known
+    country; None if it's empty, "remote", or a city name we don't try to
+    geocode."""
+    return COUNTRY_CODES.get((wo or "").strip().lower())
 
 _TAG_RE = re.compile(r"<[^>]+>")
 
@@ -119,14 +130,22 @@ class Arbeitsagentur:
         self.fetch_config = fetch_config or {}
 
     def fetch(self, query: Query) -> list:
+        resolved_country = _resolve_country(query.wo)
+        if resolved_country and resolved_country != "de":
+            # Arbeitsagentur can only ever return German postings — a
+            # normalized "France" or "Spain" query is a real zero, not a
+            # city named "France" for BA to search for. Skip the call
+            # entirely rather than send it and get a meaningless response.
+            return []
+
         size = self.fetch_config.get("size", 100)
         max_pages = self.fetch_config.get("max_pages", 10)
         sleep_seconds = self.fetch_config.get("sleep_seconds", 0.5)
         params_base = {"was": query.was, "size": size}
-        if query.wo:
-            # BA 400s on wo="" (must be omitted, not empty) and ignores umkreis
-            # without wo — so both stay out when there is no location filter,
-            # which falls back to a nationwide-Germany search.
+        # wo="" 400s the API (must be omitted, not sent empty) and umkreis is
+        # ignored without wo — so both stay out for "no location filter" and
+        # for an explicit "Germany" query, both of which mean nationwide here.
+        if query.wo and not resolved_country:
             params_base["wo"] = query.wo
             params_base["umkreis"] = query.umkreis
         if "veroeffentlichtseit" in self.fetch_config:
@@ -186,7 +205,13 @@ def _map_arbeitnow_record(record: dict, source: str) -> Optional[Job]:
     title = record.get("title")
     company = record.get("company_name")
     location = record.get("location")
-    country = "DE" if location and "germany" in location.lower() else None
+    country = None
+    if location:
+        location_lower = location.lower()
+        for name, iso2 in COUNTRY_CODES.items():
+            if name in location_lower:
+                country = iso2.upper()
+                break
     remote = bool(record.get("remote", False))
 
     created_at = record.get("created_at")
@@ -220,6 +245,9 @@ def _matches_query(job: Job, query: Query) -> bool:
     wo = (query.wo or "").strip().lower()
     if wo == "remote":
         return job.remote
+    resolved_country = _resolve_country(wo)
+    if resolved_country:
+        return job.country == resolved_country.upper()
     if wo:
         # A job's `remote` flag says nothing about which country it's remote
         # *from* — a Germany-only remote role must not match a "Spain" query.
@@ -350,13 +378,19 @@ class Eures:
         self.fetch_config = fetch_config or {}
 
     def fetch(self, query: Query) -> list:
+        if (query.wo or "").strip().lower() == "remote":
+            # No remote/telework flag exists in this API — returning the
+            # full unfiltered feed under a "Remote" label would be wrong,
+            # so an unsupported filter yields nothing rather than everything.
+            return []
+
         # The API 400s above 50 ("Too many results per page were requested").
         results_per_page = min(self.fetch_config.get("results_per_page", 50), 50)
         max_pages = self.fetch_config.get("max_pages", 10)
         sleep_seconds = self.fetch_config.get("sleep_seconds", 0.3)
 
         keywords = [{"keyword": query.was, "specificSearchCode": "EVERYWHERE"}] if query.was else []
-        iso2 = EURES_COUNTRY_CODES.get((query.wo or "").strip().lower())
+        iso2 = _resolve_country(query.wo)
         location_codes = [iso2] if iso2 else []
 
         jobs = []

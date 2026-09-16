@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import yaml
 
 import store
-from sources import Arbeitnow, Arbeitsagentur, Query
+from sources import Arbeitnow, Arbeitsagentur, Eures, Query
 
 
 def main():
@@ -15,7 +15,8 @@ def main():
 
     ba = Arbeitsagentur(config["fetch"]["arbeitsagentur"])
     an = Arbeitnow(config["fetch"]["arbeitnow"])
-    sources = [ba, an]
+    eu = Eures(config["fetch"]["eures"])
+    sources = [ba, an, eu]
 
     total_fetched = 0
     total_new = 0
