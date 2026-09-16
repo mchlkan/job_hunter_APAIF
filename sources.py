@@ -13,7 +13,20 @@ API_KEY = "jobboerse-jobsuche"
 
 ARBEITNOW_URL = "https://www.arbeitnow.com/api/job-board-api"
 
+EURES_URL = "https://europa.eu/eures/api/jv-searchengine/public/jv-search/search"
+
 COUNTRY_MAP = {"DEUTSCHLAND": "DE"}
+
+# EURES filters by ISO2 country code server-side, not free-text location, so a
+# query's `wo` is only honoured here when it names one of these countries.
+# Anything else (a city name, "Remote") falls through unfiltered — see
+# Eures.fetch(). Extend this table as more countries are needed.
+EURES_COUNTRY_CODES = {
+    "spain": "es", "germany": "de", "france": "fr", "netherlands": "nl",
+    "italy": "it", "portugal": "pt", "poland": "pl", "austria": "at",
+    "belgium": "be", "ireland": "ie", "sweden": "se", "denmark": "dk",
+    "finland": "fi",
+}
 
 _TAG_RE = re.compile(r"<[^>]+>")
 
@@ -274,6 +287,132 @@ class Arbeitnow:
         if self._cache is None:
             self._cache = self._fetch_all()
         return [job for job in self._cache if _matches_query(job, query)]
+
+
+def _map_eures_record(record: dict, source: str, preferred_country: Optional[str] = None) -> Optional[Job]:
+    external_id = record.get("id")
+    if not external_id:
+        return None
+
+    location_map = record.get("locationMap") or {}
+    # A posting can list several eligible countries at once (e.g. a role open
+    # across DE/AT/PT/IT/ES). Prefer whichever country the query actually
+    # filtered on, so a Spain search doesn't display "DE" for a match that
+    # only exists in the results because Spain was one of several options.
+    if preferred_country and preferred_country.upper() in location_map:
+        country = preferred_country.upper()
+    else:
+        country = next(iter(location_map), None)
+    nuts_codes = [c for c in (location_map.get(country) or []) if c] if country else []
+    # No city/region name is returned, only NUTS codes (e.g. "ES61") — there is
+    # no lookup table for those yet, so the raw code is stored as-is rather
+    # than inventing a human-readable name.
+    location = nuts_codes[0] if nuts_codes else country
+
+    creation_date = record.get("creationDate")
+    published = None
+    if creation_date:
+        published = datetime.fromtimestamp(creation_date / 1000, tz=timezone.utc).date().isoformat()
+
+    employer = record.get("employer") or {}
+
+    return Job(
+        id=_make_id(source, external_id),
+        source=source,
+        external_id=external_id,
+        title=record.get("title"),
+        company=employer.get("name"),
+        location=location,
+        country=country,
+        remote=False,  # EURES exposes no remote/telework flag in this response
+        published=published,
+        url=f"https://europa.eu/eures/portal/jv-se/jv-details/{external_id}?lang=en",
+        description=_strip_html(record.get("description")),
+        raw=json.dumps(record, ensure_ascii=False),
+        fetched_at=datetime.now(timezone.utc).isoformat(),
+    )
+
+
+class Eures:
+    """Third source: the EU's own public job-mobility portal, aggregating
+    vacancies from the public employment services of all EU/EEA member states
+    (Arbeitsagentur among them — EURES job IDs decode to the same refnr format,
+    so the same posting can legitimately appear via both sources; cross-source
+    dedup on dedup_key is not implemented, same known gap as with Arbeitnow).
+
+    The endpoint is undocumented but public, no key required. Location
+    filtering is server-side but only at country granularity (ISO2 codes via
+    locationCodes) — there is no free-text city search and no remote flag."""
+
+    name = "eures"
+
+    def __init__(self, fetch_config: Optional[dict] = None):
+        self.fetch_config = fetch_config or {}
+
+    def fetch(self, query: Query) -> list:
+        # The API 400s above 50 ("Too many results per page were requested").
+        results_per_page = min(self.fetch_config.get("results_per_page", 50), 50)
+        max_pages = self.fetch_config.get("max_pages", 10)
+        sleep_seconds = self.fetch_config.get("sleep_seconds", 0.3)
+
+        keywords = [{"keyword": query.was, "specificSearchCode": "EVERYWHERE"}] if query.was else []
+        iso2 = EURES_COUNTRY_CODES.get((query.wo or "").strip().lower())
+        location_codes = [iso2] if iso2 else []
+
+        jobs = []
+        page = 1
+        while page <= max_pages:
+            body = {
+                "resultsPerPage": results_per_page,
+                "page": page,
+                "sortSearch": "MOST_RECENT",
+                "keywords": keywords,
+                "publicationPeriod": None,
+                "occupationUris": [],
+                "skillUris": [],
+                "requiredExperienceCodes": [],
+                "positionScheduleCodes": [],
+                "sectorCodes": [],
+                "educationAndQualificationLevelCodes": [],
+                "positionOfferingCodes": [],
+                "locationCodes": location_codes,
+                "euresFlagCodes": [],
+                "otherBenefitsCodes": [],
+                "requiredLanguages": [],
+                "minNumberPost": None,
+                "sessionId": "job-hunter-apaif",
+                "requestLanguage": "en",
+            }
+            data = self._post(body)
+            records = data.get("jvs") or []
+            if not records:
+                break
+
+            for record in records:
+                job = _map_eures_record(record, self.name, preferred_country=iso2)
+                if job:
+                    jobs.append(job)
+
+            total = data.get("numberRecords", 0)
+            if page * results_per_page >= total:
+                break
+
+            page += 1
+            time.sleep(sleep_seconds)
+
+        return jobs
+
+    def _post(self, body: dict) -> dict:
+        for attempt in range(3):
+            resp = requests.post(EURES_URL, json=body, timeout=15)
+            if resp.status_code == 429:
+                wait = int(resp.headers.get("Retry-After", 2 * (attempt + 1)))
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp.json()
+        resp.raise_for_status()
+        return {}
 
 
 def _parse_sample_file(path: str, source: str = "arbeitsagentur") -> list:
