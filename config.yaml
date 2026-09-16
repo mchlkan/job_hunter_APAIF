@@ -1,19 +1,38 @@
 searches:
-  - was: "Data Analyst"
-    wo: "Berlin"
-    umkreis: 30
-  - was: "Business Intelligence"
-    wo: "Berlin"
-    umkreis: 30
-  - was: "Werkstudent Data"
-    wo: "Berlin"
-    umkreis: 30
-
+- was: Data Analyst
+  wo: Berlin
+  umkreis: 30
+- was: Business Intelligence
+  wo: Berlin
+  umkreis: 30
+- was: Werkstudent Data
+  wo: Berlin
+  umkreis: 30
 fetch:
   size: 100
   veroeffentlichtseit: 7
   pav: false
   max_pages: 10
   sleep_seconds: 0.5
-
-db_path: "data/jobs.db"
+db_path: data/jobs.db
+profile:
+  nice_to_have:
+    python: 2
+    sql: 2
+    power bi: 2
+    tableau: 2
+    jira: 2
+    power query: 2
+    oracle erp: 2
+    ms365: 2
+    rapidminer: 2
+    business intelligence: 2
+    javascript: 2
+    excel: 2
+  must_have: []
+  exclude: []
+  locations: []
+  remote_bonus: 5
+  active_candidate_id: 4dcb5f343256
+  active_candidate_name: Michael Kania
+alert_threshold: 40
