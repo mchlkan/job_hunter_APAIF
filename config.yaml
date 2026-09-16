@@ -44,3 +44,29 @@ fetch:
     sleep_seconds: 0.3
 
 db_path: "data/jobs.db"
+
+# profile drives the not-yet-built match engine (score.py). nice_to_have is
+# auto-populated/merged by profiles/worker.py from the most recently parsed
+# CV (see active_candidate_*) — must_have is never auto-written, curate by hand.
+profile:
+  must_have: []
+  nice_to_have:
+    python: 2
+    sql: 2
+    power bi: 2
+    tableau: 2
+    jira: 2
+    power query: 2
+    oracle erp: 2
+    ms365: 2
+    rapidminer: 2
+    business intelligence: 2
+    javascript: 2
+    excel: 2
+  exclude: []
+  locations: []
+  remote_bonus: 5
+  active_candidate_id: "4dcb5f343256"
+  active_candidate_name: "Michael Kania"
+
+alert_threshold: 40

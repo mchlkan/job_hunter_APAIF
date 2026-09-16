@@ -1,3 +1,4 @@
+import json
 import re
 import sqlite3
 from datetime import datetime, timezone
@@ -22,6 +23,20 @@ CREATE TABLE IF NOT EXISTS jobs (
     notified    INTEGER DEFAULT 0
 );
 CREATE INDEX IF NOT EXISTS idx_dedup ON jobs(dedup_key);
+
+CREATE TABLE IF NOT EXISTS candidates (
+    id           TEXT PRIMARY KEY,
+    source_file  TEXT NOT NULL,
+    name         TEXT,
+    skills       TEXT,
+    roles        TEXT,
+    experience   TEXT,
+    education    TEXT,
+    raw_text     TEXT,
+    parsed_at    TEXT NOT NULL,
+    first_seen   TEXT NOT NULL,
+    last_seen    TEXT NOT NULL
+);
 """
 
 
@@ -91,3 +106,54 @@ def needs_description(conn: sqlite3.Connection) -> list:
 def set_description(conn: sqlite3.Connection, job_id: str, description: str) -> None:
     conn.execute("UPDATE jobs SET description = ? WHERE id = ?", (description, job_id))
     conn.commit()
+
+
+def upsert_candidate(conn: sqlite3.Connection, candidate) -> bool:
+    now = datetime.now(timezone.utc).isoformat()
+    experience = [vars(e) for e in candidate.experience]
+
+    cur = conn.execute("SELECT id FROM candidates WHERE id = ?", (candidate.id,))
+    is_new = cur.fetchone() is None
+
+    conn.execute(
+        """
+        INSERT INTO candidates (id, source_file, name, skills, roles, experience,
+                                 education, raw_text, parsed_at, first_seen, last_seen)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(id) DO UPDATE SET
+            source_file = excluded.source_file,
+            name = excluded.name,
+            skills = excluded.skills,
+            roles = excluded.roles,
+            experience = excluded.experience,
+            education = excluded.education,
+            raw_text = excluded.raw_text,
+            parsed_at = excluded.parsed_at,
+            last_seen = excluded.last_seen
+        """,
+        (
+            candidate.id,
+            candidate.source_file,
+            candidate.name,
+            json.dumps(candidate.skills, ensure_ascii=False),
+            json.dumps(candidate.roles, ensure_ascii=False),
+            json.dumps(experience, ensure_ascii=False),
+            json.dumps(candidate.education, ensure_ascii=False),
+            candidate.raw_text,
+            candidate.parsed_at,
+            now,
+            now,
+        ),
+    )
+    conn.commit()
+    return is_new
+
+
+def get_candidate(conn: sqlite3.Connection, candidate_id: str):
+    cur = conn.execute("SELECT * FROM candidates WHERE id = ?", (candidate_id,))
+    return cur.fetchone()
+
+
+def latest_candidate(conn: sqlite3.Connection):
+    cur = conn.execute("SELECT * FROM candidates ORDER BY parsed_at DESC LIMIT 1")
+    return cur.fetchone()
