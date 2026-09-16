@@ -122,6 +122,21 @@ def active_candidate():
         conn.close()
 
 
+@app.get("/api/profile")
+def profile():
+    config = load_config()
+    p = config.get("profile") or {}
+    return {
+        "must_have": p.get("must_have", []),
+        "nice_to_have": p.get("nice_to_have", {}),
+        "locations": p.get("locations", []),
+        "remote_bonus": p.get("remote_bonus", 0),
+        "alert_threshold": config.get("alert_threshold", 40),
+        "active_candidate_id": p.get("active_candidate_id"),
+        "active_candidate_name": p.get("active_candidate_name"),
+    }
+
+
 @app.post("/api/cv")
 async def upload_cv(file: UploadFile):
     if not file.filename.lower().endswith(".pdf"):
