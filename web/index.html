@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>job hunter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-title">
+      <span class="wire-dot"></span>
+      <h1>JOB HUNTER</h1>
+      <span class="masthead-sub">DE / EU wire &mdash; data &amp; BI roles</span>
+    </div>
+    <div id="candidate-strip" class="candidate-strip">
+      <span class="candidate-empty">no CV on file</span>
+    </div>
+  </header>
+
+  <section class="stats-rail" id="stats-rail">
+    <div class="stat"><span class="stat-value" id="stat-total">&mdash;</span><span class="stat-label">postings tracked</span></div>
+    <div class="stat"><span class="stat-value" id="stat-scored">&mdash;</span><span class="stat-label">scored</span></div>
+    <div class="stat" id="stat-sources"><span class="stat-label">by source</span></div>
+  </section>
+
+  <section class="controls">
+    <input id="f-q" type="search" placeholder="title or company&hellip;" autocomplete="off" />
+    <select id="f-source">
+      <option value="">all sources</option>
+      <option value="arbeitsagentur">arbeitsagentur</option>
+      <option value="arbeitnow">arbeitnow</option>
+      <option value="eures">eures</option>
+    </select>
+    <select id="f-remote">
+      <option value="">on-site or remote</option>
+      <option value="true">remote only</option>
+      <option value="false">on-site only</option>
+    </select>
+    <label class="upload-btn">
+      upload CV
+      <input id="f-cv" type="file" accept="application/pdf" hidden />
+    </label>
+  </section>
+
+  <main>
+    <ol id="job-list" class="job-list" aria-live="polite"></ol>
+    <p id="empty-state" class="empty-state" hidden>nothing matches these filters yet.</p>
+  </main>
+
+  <div id="detail-panel" class="detail-panel" hidden>
+    <div class="detail-panel-inner">
+      <button id="detail-close" class="detail-close" aria-label="close">&times;</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
