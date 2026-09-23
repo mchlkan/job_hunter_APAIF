@@ -44,7 +44,14 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
+  /* --color-accent is intentionally NOT re-registered here as var(--accent) —
+     this app's design system already claims --color-accent above as the
+     brand blue (#1f6feb). Re-declaring the same property name a second time
+     in this block would silently shadow it with shadcn's own near-white
+     --accent token (a real bug this project shipped with: every bg-accent/
+     text-accent/ring-accent usage rendered washed-out instead of blue).
+     --color-accent-foreground is unaffected and still available for any
+     shadcn/ui primitive that wants it. */
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
