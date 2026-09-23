@@ -70,10 +70,15 @@ profile:
     business intelligence: 2
     javascript: 2
     excel: 2
+    data analysis: 2
+    project management: 2
+    process improvement: 2
+    german: 2
+    english: 2
   exclude: []
   locations: []
   remote_bonus: 5
-  active_candidate_id: "4dcb5f343256"
-  active_candidate_name: "Michael Kania"
+  active_candidate_id: "0bc1eed2c5c7"
+  active_candidate_name: "Vanessa Weiss"
 
 alert_threshold: 40
