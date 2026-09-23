@@ -1,25 +1,5 @@
 import store
-from sources import Job
-
-
-def _job(**overrides):
-    defaults = dict(
-        id="abc123",
-        source="arbeitsagentur",
-        external_id="ext1",
-        title="Data Analyst",
-        company="Acme GmbH",
-        location="Berlin",
-        country="DE",
-        remote=False,
-        published="2026-01-01",
-        url="https://example.com/job",
-        description="",
-        raw="{}",
-        fetched_at="2026-01-01T00:00:00+00:00",
-    )
-    defaults.update(overrides)
-    return Job(**defaults)
+from conftest import make_job as _job
 
 
 def test_set_score_persists_score_and_reasons(tmp_path):

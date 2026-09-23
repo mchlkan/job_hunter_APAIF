@@ -1,27 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
+from conftest import make_job as _job
 from score import score_job
-from sources import Job
-
-
-def _job(**overrides):
-    defaults = dict(
-        id="abc123",
-        source="arbeitsagentur",
-        external_id="ext1",
-        title="Data Analyst",
-        company="Acme GmbH",
-        location="Berlin",
-        country="DE",
-        remote=False,
-        published=datetime.now(timezone.utc).date().isoformat(),
-        url="https://example.com/job",
-        description="",
-        raw="{}",
-        fetched_at=datetime.now(timezone.utc).isoformat(),
-    )
-    defaults.update(overrides)
-    return Job(**defaults)
 
 
 def test_exclude_drops_job_on_title_match():

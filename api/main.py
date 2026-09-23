@@ -21,10 +21,14 @@ app = FastAPI(title="job-hunter dashboard API")
 # The frontend is a separate server (vite dev on :8080, or the built Node
 # server in production — see frosted-editorial-job-app-source/), not served
 # by this app, so cross-origin requests need explicit allowance. Comma-separated
-# so a real deployment can override it without a code change.
-_allowed_origins = os.environ.get(
-    "FRONTEND_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:3000,http://127.0.0.1:3000"
-).split(",")
+# so a real deployment can override it without a code change — stripped per
+# entry since CORS does an exact string match and a stray space after the
+# comma (a natural way to type the list) would otherwise silently reject it.
+_allowed_origins = [
+    origin.strip() for origin in os.environ.get(
+        "FRONTEND_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:3000,http://127.0.0.1:3000"
+    ).split(",")
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_allowed_origins,

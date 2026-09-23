@@ -1,5 +1,4 @@
 import argparse
-import atexit
 import os
 import signal
 import subprocess
@@ -12,18 +11,17 @@ FRONTEND_DIR = "frosted-editorial-job-app-source"
 BACKEND_PORT = "8123"
 
 
-class _Shutdown(Exception):
-    pass
+def _handle_signal(signum, frame):
+    # SIGTERM (plain `kill`) and SIGHUP (closing the terminal) don't become
+    # KeyboardInterrupt in Python the way SIGINT/ctrl-c does — without this,
+    # the cleanup in main()'s `finally` never runs and the three child
+    # processes are orphaned. sys.exit() unwinds through that finally like
+    # any other exception, so no custom exception type is needed here.
+    sys.exit(0)
 
 
-def _handle_sigterm(signum, frame):
-    # A plain `kill` (no args) sends SIGTERM, which Python does NOT turn into
-    # KeyboardInterrupt like it does for SIGINT/ctrl-c — without this, the
-    # cleanup below never runs and the three child processes are orphaned.
-    raise _Shutdown()
-
-
-signal.signal(signal.SIGTERM, _handle_sigterm)
+signal.signal(signal.SIGTERM, _handle_signal)
+signal.signal(signal.SIGHUP, _handle_signal)
 
 
 def _stream(proc: subprocess.Popen, name: str) -> None:
@@ -58,13 +56,8 @@ def main():
         subprocess.run(["npm", "i"], cwd=FRONTEND_DIR, check=True)
 
     procs = []
-    cleaned_up = False
 
     def cleanup():
-        nonlocal cleaned_up
-        if cleaned_up:
-            return
-        cleaned_up = True
         print("\n[start] stopping...")
         for proc in procs:
             if proc.poll() is None:
@@ -74,8 +67,6 @@ def main():
                 proc.wait(timeout=10)
             except subprocess.TimeoutExpired:
                 proc.kill()
-
-    atexit.register(cleanup)  # backstop in case the finally block below doesn't run
 
     try:
         procs.append(_spawn(
@@ -101,7 +92,7 @@ def main():
         for proc in procs:
             proc.wait()
 
-    except (KeyboardInterrupt, _Shutdown):
+    except KeyboardInterrupt:
         pass
     finally:
         cleanup()

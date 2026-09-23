@@ -1,5 +1,27 @@
 import pytest
 
+from sources import Job
+
+
+def make_job(**overrides) -> Job:
+    defaults = dict(
+        id="abc123",
+        source="arbeitsagentur",
+        external_id="ext1",
+        title="Data Analyst",
+        company="Acme GmbH",
+        location="Berlin",
+        country="DE",
+        remote=False,
+        published="2026-01-01",
+        url="https://example.com/job",
+        description="",
+        raw="{}",
+        fetched_at="2026-01-01T00:00:00+00:00",
+    )
+    defaults.update(overrides)
+    return Job(**defaults)
+
 
 def _pdf_escape(text: str) -> str:
     return text.replace("\\", r"\\").replace("(", r"\(").replace(")", r"\)")
