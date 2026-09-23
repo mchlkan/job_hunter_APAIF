@@ -3,6 +3,8 @@ import re
 import sqlite3
 from datetime import datetime, timezone
 
+from sources import Job
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS jobs (
     id          TEXT PRIMARY KEY,
@@ -11,6 +13,7 @@ CREATE TABLE IF NOT EXISTS jobs (
     title       TEXT NOT NULL,
     company     TEXT,
     location    TEXT,
+    country     TEXT,
     remote      INTEGER DEFAULT 0,
     published   TEXT,
     url         TEXT,
@@ -18,6 +21,7 @@ CREATE TABLE IF NOT EXISTS jobs (
     raw         TEXT,
     dedup_key   TEXT,
     score       REAL,
+    match_reasons TEXT,
     first_seen  TEXT NOT NULL,
     last_seen   TEXT NOT NULL,
     notified    INTEGER DEFAULT 0
@@ -56,7 +60,16 @@ def dedup_key(company: str, title: str, location: str) -> str:
 
 def init(path: str) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    # Columns added after some databases already existed; CREATE TABLE IF NOT
+    # EXISTS is a no-op on those, so bring them up to date without touching the
+    # rows (and first_seen history) already collected.
+    existing_cols = {row["name"] for row in conn.execute("PRAGMA table_info(jobs)")}
+    if "country" not in existing_cols:
+        conn.execute("ALTER TABLE jobs ADD COLUMN country TEXT")
+    if "match_reasons" not in existing_cols:
+        conn.execute("ALTER TABLE jobs ADD COLUMN match_reasons TEXT")
     conn.commit()
     return conn
 
@@ -72,14 +85,16 @@ def upsert(conn: sqlite3.Connection, jobs: list) -> int:
             new_count += 1
         conn.execute(
             """
-            INSERT INTO jobs (id, source, external_id, title, company, location, remote,
-                               published, url, description, raw, dedup_key, first_seen, last_seen)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO jobs (id, source, external_id, title, company, location, country,
+                               remote, published, url, description, raw, dedup_key,
+                               first_seen, last_seen)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO UPDATE SET
                 last_seen = excluded.last_seen,
                 title = excluded.title,
                 company = excluded.company,
                 location = excluded.location,
+                country = excluded.country,
                 remote = excluded.remote,
                 published = excluded.published,
                 url = excluded.url,
@@ -87,7 +102,8 @@ def upsert(conn: sqlite3.Connection, jobs: list) -> int:
                 dedup_key = excluded.dedup_key
             """,
             (job.id, job.source, job.external_id, job.title, job.company, job.location,
-             int(job.remote), job.published, job.url, job.description, job.raw, key, now, now),
+             job.country, int(job.remote), job.published, job.url, job.description, job.raw,
+             key, now, now),
         )
     conn.commit()
     return new_count
@@ -106,6 +122,37 @@ def needs_description(conn: sqlite3.Connection) -> list:
 def set_description(conn: sqlite3.Connection, job_id: str, description: str) -> None:
     conn.execute("UPDATE jobs SET description = ? WHERE id = ?", (description, job_id))
     conn.commit()
+
+
+def set_score(conn: sqlite3.Connection, job_id: str, score: float, reasons: list = None) -> None:
+    conn.execute(
+        "UPDATE jobs SET score = ?, match_reasons = ? WHERE id = ?",
+        (score, json.dumps(reasons or [], ensure_ascii=False), job_id),
+    )
+    conn.commit()
+
+
+def get_match_reasons(row: sqlite3.Row) -> list:
+    raw = row["match_reasons"]
+    return json.loads(raw) if raw else []
+
+
+def job_from_row(row: sqlite3.Row) -> Job:
+    return Job(
+        id=row["id"],
+        source=row["source"],
+        external_id=row["external_id"],
+        title=row["title"],
+        company=row["company"],
+        location=row["location"],
+        country=row["country"],
+        remote=bool(row["remote"]),
+        published=row["published"],
+        url=row["url"],
+        description=row["description"],
+        raw=row["raw"],
+        fetched_at=None,
+    )
 
 
 def upsert_candidate(conn: sqlite3.Connection, candidate) -> bool:
