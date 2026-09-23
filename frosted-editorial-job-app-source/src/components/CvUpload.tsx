@@ -62,7 +62,7 @@ export function CvUpload() {
         <button
           onClick={() => inputRef.current?.click()}
           disabled={upload.isPending}
-          className="mt-4 inline-flex items-center rounded-[10px] bg-blue-800 px-4 py-2 text-[13px] font-medium text-white ring-1 ring-blue-800 hover:bg-blue-900 disabled:opacity-60"
+          className="mt-4 inline-flex items-center rounded-[10px] bg-accent px-4 py-2 text-[13px] font-medium text-white disabled:opacity-60"
         >
           {name ? "Replace CV" : "Upload CV"}
         </button>
