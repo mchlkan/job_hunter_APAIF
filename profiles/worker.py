@@ -9,6 +9,7 @@ from dataclasses import asdict
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import yaml
+from ruamel.yaml import YAML
 
 import store
 from profiles.parser import parse_cv
@@ -18,10 +19,16 @@ PROCESSED_DIR = "data/cv_uploads/processed"
 PROFILES_DIR = "data/profiles"
 CONFIG_PATH = "config.yaml"
 
+# Round-trip loader/dumper — unlike yaml.safe_dump, this preserves config.yaml's
+# comments and formatting when we rewrite just the profile block below.
+_yaml_rt = YAML()
+_yaml_rt.preserve_quotes = True
+_yaml_rt.indent(mapping=2, sequence=4, offset=2)
+
 
 def update_profile_block(config_path: str, candidate, default_weight: int = 2) -> None:
     with open(config_path, "r", encoding="utf-8") as f:
-        config = yaml.safe_load(f) or {}
+        config = _yaml_rt.load(f) or {}
 
     profile = config.get("profile", {}) or {}
     nice_to_have = profile.get("nice_to_have", {}) or {}
@@ -43,7 +50,25 @@ def update_profile_block(config_path: str, candidate, default_weight: int = 2) -
     config.setdefault("alert_threshold", 40)
 
     with open(config_path, "w", encoding="utf-8") as f:
-        yaml.safe_dump(config, f, sort_keys=False, allow_unicode=True)
+        _yaml_rt.dump(config, f)
+
+
+def process_pdf(conn, pdf_path: str):
+    """Parse one uploaded CV, persist it (candidates table + JSON profile), and
+    move the source file into PROCESSED_DIR. Shared by the batch scan in
+    main() and the single-file upload endpoint in api/main.py."""
+    os.makedirs(PROCESSED_DIR, exist_ok=True)
+    os.makedirs(PROFILES_DIR, exist_ok=True)
+
+    candidate = parse_cv(pdf_path)
+    store.upsert_candidate(conn, candidate)
+
+    profile_path = os.path.join(PROFILES_DIR, f"{candidate.id}.json")
+    with open(profile_path, "w", encoding="utf-8") as f:
+        json.dump(asdict(candidate), f, ensure_ascii=False, indent=2)
+
+    shutil.move(pdf_path, os.path.join(PROCESSED_DIR, os.path.basename(pdf_path)))
+    return candidate
 
 
 def main():
@@ -64,14 +89,7 @@ def main():
     last_candidate = None
     for filename in pdf_files:
         pdf_path = os.path.join(UPLOADS_DIR, filename)
-        candidate = parse_cv(pdf_path)
-        store.upsert_candidate(conn, candidate)
-
-        profile_path = os.path.join(PROFILES_DIR, f"{candidate.id}.json")
-        with open(profile_path, "w", encoding="utf-8") as f:
-            json.dump(asdict(candidate), f, ensure_ascii=False, indent=2)
-
-        shutil.move(pdf_path, os.path.join(PROCESSED_DIR, filename))
+        candidate = process_pdf(conn, pdf_path)
         parsed += 1
         last_candidate = candidate
         print(f"  parsed {filename!r}: {candidate.name!r}, {len(candidate.skills)} skills, "

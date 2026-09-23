@@ -45,9 +45,16 @@ fetch:
 
 db_path: "data/jobs.db"
 
-# profile drives the not-yet-built match engine (score.py). nice_to_have is
-# auto-populated/merged by profiles/worker.py from the most recently parsed
-# CV (see active_candidate_*) — must_have is never auto-written, curate by hand.
+# scheduler.py loops the collection run (run.py) and the CV worker
+# (profiles/worker.py) on this interval, so the dashboard always has
+# reasonably fresh data without either script being run by hand.
+schedule:
+  interval_minutes: 60
+
+# profile drives the match engine (score.py), run automatically by run.py
+# after each fetch. nice_to_have is auto-populated/merged by profiles/worker.py
+# from the most recently parsed CV (see active_candidate_*) — must_have is
+# never auto-written, curate by hand.
 profile:
   must_have: []
   nice_to_have:

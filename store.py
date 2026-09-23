@@ -60,7 +60,7 @@ def dedup_key(company: str, title: str, location: str) -> str:
 
 def init(path: str) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
-    conn.row_factory = sqlite3.Row
+    conn.row_factory = sqlite3.Row  # supports both row[0] and row["col"] — index access below is unaffected
     conn.executescript(SCHEMA)
     # Columns added after some databases already existed; CREATE TABLE IF NOT
     # EXISTS is a no-op on those, so bring them up to date without touching the
@@ -112,6 +112,44 @@ def upsert(conn: sqlite3.Connection, jobs: list) -> int:
 def get_new(conn: sqlite3.Connection, day: str) -> list:
     cur = conn.execute("SELECT * FROM jobs WHERE date(first_seen) = date(?)", (day,))
     return cur.fetchall()
+
+
+def list_jobs(
+    conn: sqlite3.Connection,
+    source: str = None,
+    remote: bool = None,
+    q: str = None,
+    min_score: float = None,
+    limit: int = 200,
+) -> list:
+    """Jobs for the dashboard, ranked by score (unscored jobs last), newest first
+    within a score tier. `score` is NULL until run.py's scoring pass (score.py)
+    fills it in for a given job — filtering on min_score naturally excludes
+    anything not scored yet."""
+    clauses = []
+    params = []
+    if source:
+        clauses.append("source = ?")
+        params.append(source)
+    if remote is not None:
+        clauses.append("remote = ?")
+        params.append(int(remote))
+    if q:
+        clauses.append("(title LIKE ? OR company LIKE ?)")
+        params.extend([f"%{q}%", f"%{q}%"])
+    if min_score is not None:
+        clauses.append("score >= ?")
+        params.append(min_score)
+
+    where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+    sql = f"""
+        SELECT * FROM jobs
+        {where}
+        ORDER BY score IS NULL, score DESC, published DESC
+        LIMIT ?
+    """
+    params.append(limit)
+    return conn.execute(sql, params).fetchall()
 
 
 def needs_description(conn: sqlite3.Connection) -> list:

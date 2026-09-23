@@ -1,5 +1,3 @@
-import os
-
 import store
 from sources import Job
 
@@ -70,3 +68,61 @@ def test_country_and_match_reasons_migration_on_existing_db(tmp_path):
     cols = {row["name"] for row in conn.execute("PRAGMA table_info(jobs)")}
     assert "country" in cols
     assert "match_reasons" in cols
+
+
+def test_list_jobs_filters_by_source(tmp_path):
+    conn = store.init(str(tmp_path / "jobs.db"))
+    store.upsert(conn, [
+        _job(id="a", title="Data Analyst", source="arbeitsagentur"),
+        _job(id="b", title="Data Analyst", source="eures"),
+    ])
+    rows = store.list_jobs(conn, source="eures")
+    assert [r["id"] for r in rows] == ["b"]
+
+
+def test_list_jobs_filters_by_remote(tmp_path):
+    conn = store.init(str(tmp_path / "jobs.db"))
+    store.upsert(conn, [
+        _job(id="a", title="Remote Analyst", remote=True),
+        _job(id="b", title="Onsite Analyst", remote=False),
+    ])
+    rows = store.list_jobs(conn, remote=True)
+    assert [r["id"] for r in rows] == ["a"]
+
+
+def test_list_jobs_filters_by_query_matches_title_or_company(tmp_path):
+    conn = store.init(str(tmp_path / "jobs.db"))
+    store.upsert(conn, [
+        _job(id="a", title="Data Analyst", company="Acme"),
+        _job(id="b", title="Business Analyst", company="Widgets"),
+    ])
+    assert [r["id"] for r in store.list_jobs(conn, q="Data")] == ["a"]
+    assert [r["id"] for r in store.list_jobs(conn, q="Widgets")] == ["b"]
+
+
+def test_list_jobs_orders_scored_first_then_unscored(tmp_path):
+    conn = store.init(str(tmp_path / "jobs.db"))
+    store.upsert(conn, [
+        _job(id="low", title="Job"),
+        _job(id="unscored", title="Job"),
+        _job(id="high", title="Job"),
+    ])
+    store.set_score(conn, "low", 10)
+    store.set_score(conn, "high", 90)
+
+    rows = store.list_jobs(conn)
+    assert [r["id"] for r in rows] == ["high", "low", "unscored"]
+
+
+def test_list_jobs_min_score_excludes_unscored(tmp_path):
+    conn = store.init(str(tmp_path / "jobs.db"))
+    store.upsert(conn, [
+        _job(id="low", title="Job"),
+        _job(id="unscored", title="Job"),
+        _job(id="high", title="Job"),
+    ])
+    store.set_score(conn, "low", 10)
+    store.set_score(conn, "high", 90)
+
+    rows = store.list_jobs(conn, min_score=40)
+    assert [r["id"] for r in rows] == ["high"]
