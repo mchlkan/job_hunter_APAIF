@@ -1,5 +1,9 @@
-// Client for the Python FastAPI backend (../../api/main.py). Proxied at
-// /api by vite.config.ts's dev server -> http://127.0.0.1:8123.
+// Client for the Python FastAPI backend (../../api/main.py). In dev, relative
+// /api paths are proxied by vite.config.ts -> http://127.0.0.1:8123. The
+// production build (a standalone Node server, not behind that dev proxy)
+// needs an absolute URL instead — set via VITE_API_BASE at build time (see
+// .env.production); FastAPI's CORS config must allow that origin.
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
 export type ApiJob = {
   id: string;
@@ -59,7 +63,7 @@ class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(path, init);
+  const res = await fetch(`${API_BASE}${path}`, init);
   if (!res.ok) {
     const body = await res.json().catch(() => ({}) as { detail?: string });
     throw new ApiError(res.status, body.detail || res.statusText);

@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import yaml
 from fastapi import FastAPI, HTTPException, UploadFile
-from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 import store
 from profiles.worker import UPLOADS_DIR, process_pdf, update_profile_block
@@ -17,6 +17,20 @@ from profiles.worker import UPLOADS_DIR, process_pdf, update_profile_block
 CONFIG_PATH = "config.yaml"
 
 app = FastAPI(title="job-hunter dashboard API")
+
+# The frontend is a separate server (vite dev on :8080, or the built Node
+# server in production — see frosted-editorial-job-app-source/), not served
+# by this app, so cross-origin requests need explicit allowance. Comma-separated
+# so a real deployment can override it without a code change.
+_allowed_origins = os.environ.get(
+    "FRONTEND_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080,http://localhost:3000,http://127.0.0.1:3000"
+).split(",")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_allowed_origins,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def load_config() -> dict:
@@ -154,7 +168,3 @@ async def upload_cv(file: UploadFile):
         return candidate_to_dict(store.get_candidate(conn, candidate.id))
     finally:
         conn.close()
-
-
-# Static frontend last, so it doesn't shadow the /api/* routes above.
-app.mount("/", StaticFiles(directory="web", html=True), name="web")

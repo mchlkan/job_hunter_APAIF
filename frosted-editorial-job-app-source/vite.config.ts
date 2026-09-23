@@ -12,6 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // No route uses a server-side loader (everything fetches client-side via
+  // React Query against /api/*), so the SSR render this preset does is
+  // trivial — a plain Node server we run alongside the FastAPI backend,
+  // instead of the cloudflare-module default target.
+  nitro: {
+    preset: "node-server",
+  },
   vite: {
     server: {
       // The Python FastAPI backend (api/main.py, ../store.py) runs separately
